@@ -1,59 +1,47 @@
 # Báo cáo thử nghiệm: Whisper Prompt vs Không Prompt
 
-**Thời gian xuất báo cáo:** 2026-09-08 11:04:44  
-**Tổng số lượt test:** 116 lượt (ESP32_INMP441: 11 câu, MIC: 94 câu, TTS_KOKORO: 11 câu)  
+**Thời gian xuất báo cáo:** 2026-09-08 14:47:05  
+**Tổng số lượt test:** 223 lượt (ESP32_INMP441: 116 câu, MIC: 94 câu, TTS_KOKORO: 13 câu)  
 
 ## 1. Tóm tắt hiệu quả của Prompt (So sánh: Không Prompt vs Có Prompt)
 
 | Chỉ số | Số lượng | Tỷ lệ (%) |
 |---|---:|---:|
-| 🟢 **Tốt hơn (Prompt giúp sửa đúng)** | **45** | **38.8%** |
-| 🔴 **Xấu hơn (Prompt gây ảo giác/sai)** | **13** | **11.2%** |
-| ⚪ **Không đổi (Cả hai cùng đúng/sai)** | **58** | **50.0%** |
+| 🟢 **Tốt hơn (Prompt giúp sửa đúng)** | **107** | **48.0%** |
+| 🔴 **Xấu hơn (Prompt gây ảo giác/sai)** | **14** | **6.3%** |
+| ⚪ **Không đổi (Cả hai cùng đúng/sai)** | **102** | **45.7%** |
 
 ## 2. Bảng kết quả chi tiết từng lượt test
 
 | Thời gian | Nguồn | Kịch bản | Câu chuẩn (Reference) | 1. Không Prompt | 2. Có Prompt | Đánh giá |
 |---|:---:|---|---|---|---|:---:|
-| 14:28:03 | `MIC` | network_status | Get the connection detail for my phone | That's the condition detail for my phone. *(28.6%)* | Write the connection detail for my phone. *(14.3%)* | 🟢 TỐT HƠN |
-| 14:29:02 | `MIC` | network_status | Get the connection detail for my phone | What has IP and data of the laptop? *(114.3%)* | What has an IP administrator of the laptop? *(114.3%)* | ⚪ KHÔNG ĐỔI |
-| 14:29:24 | `MIC` | network_status | Get the connection detail for my phone | What are the IP and state that looks like so? *(128.6%)* | router IP and status of laptop. *(100.0%)* | 🟢 TỐT HƠN |
-| 14:30:20 | `TTS_KOKORO` | network_status | what are the ip and status of the laptop | What are the IP and status of the laptop? *(0.0%)* | What are the IP and status of the laptop? *(0.0%)* | ⚪ KHÔNG ĐỔI |
-| 14:30:51 | `MIC` | network_status | what are the ip and status of the laptop | What are the, what are the IP and state of the drop-up? *(55.6%)* | What are the, what are the IP and state of the laptop? *(44.4%)* | 🟢 TỐT HƠN |
-| 14:31:16 | `MIC` | network_status | what are the ip and status of the laptop | What are the, what are the IP and state of the drop-up? *(55.6%)* | What are the, what are the IP and state of the laptop? *(44.4%)* | 🟢 TỐT HƠN |
-| 14:31:39 | `MIC` | network_status | what are the ip and status of the laptop | What are the, what are the IP and state of the drop-up? *(55.6%)* | laptop. What are the, what are the IP and status of the laptop? *(44.4%)* | 🟢 TỐT HƠN |
-| 14:31:58 | `MIC` | network_status | what are the ip and status of the laptop | What are the IPS Day 3 Pro Selector? *(66.7%)* | app. What are the IPS data? Selector. *(77.8%)* | 🔴 XẤU HƠN |
-| 14:32:22 | `MIC` | network_status | what are the ip and status of the laptop | How is it going today? *(100.0%)* | How is network today? *(100.0%)* | ⚪ KHÔNG ĐỔI |
-| 14:32:51 | `MIC` | network_status | what are the ip and status of the laptop | Check the internal connoisseur quality. *(88.9%)* | Check the internal condition quality. *(88.9%)* | ⚪ KHÔNG ĐỔI |
-| 14:33:13 | `MIC` | network_status | what are the ip and status of the laptop | See the Wi-Fi stable. *(88.9%)* | Wi‑Fi stable. *(100.0%)* | 🔴 XẤU HƠN |
-| 14:33:47 | `MIC` | network_status | Limit online game  and show online devices. | Libis online game and so online to fire. *(57.1%)* | release online game and so online to fire. *(57.1%)* | ⚪ KHÔNG ĐỔI |
-| 14:34:09 | `MIC` | network_status | Limit online game  and show online devices. | leave it or like give and so on i leave i *(142.9%)* | Libid, online gig, and so online. DeFi. *(57.1%)* | 🟢 TỐT HƠN |
-| 14:35:06 | `MIC` | network_status | Limit online game  and show online devices. | enable against Wi-Fi and up on QOSP *(85.7%)* | Open QoS. Open QoS page. *(100.0%)* | 🔴 XẤU HƠN |
-| 14:35:35 | `MIC` | network_status | Limit online game  and show online devices. | What is the IP and state of the laptop? *(114.3%)* | What are the IP and Status of the laptop? *(114.3%)* | ⚪ KHÔNG ĐỔI |
-| 14:35:56 | `MIC` | network_status | Limit online game  and show online devices. | Get the conditioning detail for my phone. *(100.0%)* | device. Get the connection detail for my phone. *(114.3%)* | 🔴 XẤU HƠN |
-| 14:36:18 | `MIC` | network_status | Limit online game  and show online devices. | Optimal dimming for the PC *(100.0%)* | HDMI gaming for the PC. *(100.0%)* | ⚪ KHÔNG ĐỔI |
-| 14:36:30 | `MIC` | network_status | Limit online game  and show online devices. | optimally give me for the PC *(100.0%)* | software. Optimize gaming for the PC. *(100.0%)* | ⚪ KHÔNG ĐỔI |
-| 14:41:06 | `MIC` | network_status | Limit online game  and show online devices. | What is against my fire passport? *(100.0%)* | What is a guest Wi-Fi a past book? *(114.3%)* | 🔴 XẤU HƠN |
-| 10:26:13 | `ESP32_INMP441` | network_status | What is my network status? | Anybody get Wi-Fi, turn up the get, network, fleet, turn the get Wi-Fi on. *(260.0%)* | Enable guest Wi-Fi. Turn off the guest network. Fleet turn the guest Wi-Fi on. *(260.0%)* | ⚪ KHÔNG ĐỔI |
-| 10:26:43 | `ESP32_INMP441` | network_status | Enable guest Wi‑Fi.
-Turn off the guest network.
-Please turn the guest Wi‑Fi on. | Anybody get Wi-Fi, turn up the get, network, fleet, turn the get Wi-Fi on. *(62.5%)* | Enable guest Wi-Fi. Turn off the guest network. Fleet turn the guest Wi-Fi on. *(31.2%)* | 🟢 TỐT HƠN |
-| 10:27:27 | `ESP32_INMP441` | network_status | Enable guest Wi‑Fi.
-Turn off the guest network.
-Please turn the guest Wi‑Fi on. | But it turns out I'll get my fire on. *(93.8%)* | Delete turn the guest Wi-Fi on. *(75.0%)* | 🟢 TỐT HƠN |
-| 10:27:37 | `ESP32_INMP441` | network_status | Enable guest Wi‑Fi.
-Turn off the guest network.
-Please turn the guest Wi‑Fi on. | Please turn the get right back on. *(75.0%)* | Please turn the guest Wi-Fi on. *(68.8%)* | 🟢 TỐT HƠN |
-| 10:28:58 | `ESP32_INMP441` | network_status | Enable guest Wi‑Fi.
-Turn off the guest network.
-Please turn the guest Wi‑Fi on. | Please turn the cast Wi-Fi on. *(75.0%)* | Please turn the guest Wi-Fi on. *(68.8%)* | 🟢 TỐT HƠN |
-| 10:33:01 | `ESP32_INMP441` | network_status | Please turn the guest Wi‑Fi on. | Please turn the cast Wi-Fi on. *(42.9%)* | Please turn the guest Wi-Fi on. *(28.6%)* | 🟢 TỐT HƠN |
-| 10:33:41 | `ESP32_INMP441` | network_status | Please turn the guest Wi‑Fi on. | leave the phone to 50 MBBS this is the laptop bandwidth to 20 MBBS come to the tablet to make a bit second. Let's try. *(342.9%)* | Limit the phone to fifty and BBS. Set the laptop bandwidth to twenty and BBS. Come to the tablet to make a bit. *(314.3%)* | 🟢 TỐT HƠN |
-| 10:34:29 | `ESP32_INMP441` | network_status | Limit the phone to 50 Mbps.
-Set the laptop bandwidth to 20 Mbps.
-Cap the tablet at 10 megabits per second. | Limit the phone to 50 MBBS, set it up, run with to 20 MBBS, camp the tablet at 10 megabits per second *(33.3%)* | Limit the phone to fifty. Limit to twenty. Limit the tablet at ten. Limit per second. *(38.1%)* | 🔴 XẤU HƠN |
-| 11:00:51 | `ESP32_INMP441` | network_status | How is the network today? | It enables a gateway phase to in hopes of getting it work. Please turn the gateway fire on. *(340.0%)* | Enable guest Wi-Fi. Turn off guest network. Please turn the guest Wi-Fi on. *(240.0%)* | 🟢 TỐT HƠN |
-| 11:03:33 | `ESP32_INMP441` | network_status | How is the network today? | Leave me the phone to 50 MBBS, set the laptop when we do 20 MBBS, tap the top left 10 megabits per second. *(440.0%)* | Limit the phone to 50 Mbps. Set the laptop bandwidth to 20 Mbps. Cap the tablet at 10 Mbps. *(360.0%)* | 🟢 TỐT HƠN |
-| 11:04:24 | `ESP32_INMP441` | network_status | Optimize gaming for the PC.
-Boost YouTube on my laptop.
-Prioritize Netflix for the smart TV. | I'll take my gaming for the PC, boost YouTube on my laptop, Cryos, dear eye, nep, quick, to fall smarty-bee. *(68.8%)* | Optimize gaming for the PC, boost YouTube on my laptop, prioritize, derive Netflix for smart TV. *(12.5%)* | 🟢 TỐT HƠN |
+| 14:34:12 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | Just don't think that one might try the phone. *(133.3%)* | Stock TikTok on my childhood phone. *(33.3%)* | 🟢 TỐT HƠN |
+| 14:34:21 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | Stop the tuck on my sharpened phone. *(50.0%)* | Stop TikTok on my child's phone. *(0.0%)* | 🟢 TỐT HƠN |
+| 14:34:34 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | Blocked you tool for the template. *(100.0%)* | Block YouTube for the tablet. *(100.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:34:44 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | varieties are in the plate for the smat TV. *(150.0%)* | For IoT side, Netflix for the smart TV. *(133.3%)* | 🟢 TỐT HƠN |
+| 14:34:52 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | priority sign *(100.0%)* | Prior design. *(100.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:35:29 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | by a retired *(100.0%)* | Pay a retail. *(100.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:35:35 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | Brioree's tie. *(100.0%)* | Brio restai. *(100.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:36:03 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | both YouTube on my laptop. *(66.7%)* | Both YouTube on my laptop. *(66.7%)* | ⚪ KHÔNG ĐỔI |
+| 14:36:10 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | both YouTube on my laptop. *(66.7%)* | Boost YouTube on my laptop. *(66.7%)* | ⚪ KHÔNG ĐỔI |
+| 14:36:21 | `ESP32_INMP441` | network_status | Stop TikTok on my child's phone. | up to my gaming for that PC *(116.7%)* | Optimize gaming for the PC. *(100.0%)* | 🟢 TỐT HƠN |
+| 14:40:29 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | I'll re-tie, template for the Smat TV. *(66.7%)* | Cry over time. Netflix for the smart TV. *(50.0%)* | 🟢 TỐT HƠN |
+| 14:40:41 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | pry or retype, Netflix for the Smat TV. *(66.7%)* | Try or restart Netflix for the smart TV. *(50.0%)* | 🟢 TỐT HƠN |
+| 14:40:48 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | But I'll restate. *(100.0%)* | But I already stay. *(100.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:41:14 | `TTS_KOKORO` | network_status | Prioritize Netflix for the smart TV. | Prioritize Netflix for the smart TV. *(0.0%)* | Prioritize Netflix for the smart TV. *(0.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:41:35 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | but I will do a tiny flick for this active V. *(166.7%)* | Browse your tiny Netflix for the smart TV. *(50.0%)* | 🟢 TỐT HƠN |
+| 14:41:45 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | I always tie the plate for the Smart TV. *(83.3%)* | Try always time and play for the smart TV. *(83.3%)* | ⚪ KHÔNG ĐỔI |
+| 14:42:24 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | I'll see you in the next video, I'll see you in the next video, I'll see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, see you in the next video, *(3133.3%)* | Optimizing for the PC. *(66.7%)* | 🟢 TỐT HƠN |
+| 14:42:51 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | I'll see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the next video, see you guys in the *(3233.3%)* | Optimize gaming for the PC. *(66.7%)* | 🟢 TỐT HƠN |
+| 14:43:12 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | and block internet for the entire plate. *(83.3%)* | And Block internet for the tablet. *(83.3%)* | ⚪ KHÔNG ĐỔI |
+| 14:43:20 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | and below internet for the top left. *(83.3%)* | Unblock internet for the tablet. *(66.7%)* | 🟢 TỐT HƠN |
+| 14:44:00 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | I advertise gaming for the PC. *(83.3%)* | Prioritize gaming for the PC. *(50.0%)* | 🟢 TỐT HƠN |
+| 14:44:11 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | right or right I'm aiming for the PC *(116.7%)* | Ride or retargeting for the PC. *(83.3%)* | 🟢 TỐT HƠN |
+| 14:44:19 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | but I always tell you we have been for the B.C. *(166.7%)* | But I always tell you we have been for the PC. *(166.7%)* | ⚪ KHÔNG ĐỔI |
+| 14:44:40 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | And they will guess if I end up in the QA pit. *(183.3%)* | Enable guest Wi-Fi and open the key Wi-Fi. *(116.7%)* | 🟢 TỐT HƠN |
+| 14:44:52 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | below you took on the tablet and check it out as stated *(183.3%)* | Blow you took on the tablet and check your router status. *(166.7%)* | 🟢 TỐT HƠN |
+| 14:45:09 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | limit on light game and so on lighty right *(150.0%)* | Limit online game and so on. Let me write. *(150.0%)* | ⚪ KHÔNG ĐỔI |
+| 14:45:25 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | leave me on my game and show on lydivite *(150.0%)* | Limit online game and show online device. *(116.7%)* | 🟢 TỐT HƠN |
+| 14:45:47 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | Tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, tap, *(283.3%)* | Tap the tablet and make a beat post here. *(150.0%)* | 🟢 TỐT HƠN |
+| 14:45:59 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | Cut the template a 10 megapit per second. *(133.3%)* | Copy the tablet at 10 Mbps. *(100.0%)* | 🟢 TỐT HƠN |
+| 14:46:12 | `ESP32_INMP441` | network_status | Prioritize Netflix for the smart TV. | I'm going to tap the top left at 10 mb per second. *(183.3%)* | Type the tablet at 10 Mbps. *(100.0%)* | 🟢 TỐT HƠN |
