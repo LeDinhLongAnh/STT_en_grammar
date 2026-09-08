@@ -55,12 +55,15 @@ _STOP_WORDS = {
 _SCENARIO_PHRASES: dict[str, tuple[str, ...]] = {
     "network_status": ("network status", "network condition", "network doing",
                        "network working", "check my network", "wrong with my network",
-                       "connection quality", "speed test"),
+                       "connection quality", "speed test", "network today", "wifi stable",
+                       "wi-fi stable"),
     "router_status": ("router status", "router doing", "router working",
                       "check the router", "problem with the router", "router information",
-                      "router info"),
+                      "router info", "gateway information", "gateway info", "router uptime"),
     "wifi_device_info": ("device info", "device information", "wifi details",
-                         "device details", "what device", "about john", "about alice"),
+                         "device details", "what device", "about john", "about alice",
+                         "connection details", "connection detail", "details for",
+                         "info for", "ip and status"),
     "online_devices": ("online devices", "connected devices", "who is online",
                        "currently online", "connected to my wifi", "active device",
                        "devices online", "device online", "number of device online"),
@@ -68,15 +71,16 @@ _SCENARIO_PHRASES: dict[str, tuple[str, ...]] = {
                         "who is gaming", "currently gaming", "game sessions"),
     "guest_wifi": ("guest wifi", "guest network"),
     "open_qos": ("open qos", "show qos", "qos page", "each device is doing",
-                 "activity type", "gaming or streaming", "using the network"),
+                 "activity type", "gaming or streaming", "using the network",
+                 "optimize gaming", "boost youtube", "prioritize netflix"),
     "bandwidth_limit": ("bandwidth limit", "speed limit", "limit the speed",
-                        "limit to", "set the limit", "limit of"),
+                        "limit to", "set the limit", "limit of", "cap the"),
 }
 
 _INFORMATION_SIGNALS: dict[str, set[str]] = {
     "network_status": {"network"},
     "router_status": {"router"},
-    "wifi_device_info": {"info", "information", "details", "device"},
+    "wifi_device_info": {"info", "information", "details", "device", "connection"},
     "online_devices": {"online", "connected"},
     "gaming_sessions": {"gaming", "game", "games"},
     "open_qos": {"qos", "activity", "streaming"},
@@ -267,7 +271,8 @@ def resolve_scenario(text: str, config: dict[str, Any]) -> ScenarioResolution:
 def normalize_words(text: str) -> list[str]:
     # Whisper prefers the spelling "Wi-Fi" while router references commonly
     # use "wifi". A formatting hyphen must not count as an ASR word error.
-    text = re.sub(r"(?<=\w)-(?=\w)", "", text.lower())
+    # Support both regular ASCII hyphen (-) and unicode non-breaking hyphens (\u2010-\u2014)
+    text = re.sub(r"(?<=\w)[-\u2010-\u2014](?=\w)", "", text.lower())
     words = re.findall(r"[a-z0-9]+(?:'[a-z0-9]+)?", text)
     # Bandwidth is a numeric slot without a spoken unit. Whisper may format the
     # same value as "50" or "fifty"; that is not an ASR error for this system.
