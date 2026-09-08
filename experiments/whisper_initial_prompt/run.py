@@ -66,15 +66,29 @@ _SCENARIO_PHRASES: dict[str, tuple[str, ...]] = {
                          "info for", "ip and status"),
     "online_devices": ("online devices", "connected devices", "who is online",
                        "currently online", "connected to my wifi", "active device",
-                       "devices online", "device online", "number of device online"),
+                       "devices online", "device online", "number of device online",
+                       "clients are connected", "clients connected", "which clients"),
     "gaming_sessions": ("gaming sessions", "playing games", "playing a game",
-                        "who is gaming", "currently gaming", "game sessions"),
+                        "who is gaming", "currently gaming", "game sessions",
+                        "active gaming sessions", "active gaming session", "active gaming",
+                        "devices are playing games", "devices playing games"),
     "guest_wifi": ("guest wifi", "guest network"),
     "open_qos": ("open qos", "show qos", "qos page", "each device is doing",
                  "activity type", "gaming or streaming", "using the network",
-                 "optimize gaming", "boost youtube", "prioritize netflix"),
+                 "optimize gaming", "boost youtube", "prioritize netflix",
+                 "prioritize gaming", "prioritize youtube", "prioritize"),
     "bandwidth_limit": ("bandwidth limit", "speed limit", "limit the speed",
                         "limit to", "set the limit", "limit of", "cap the"),
+    "block_application": ("prevent gaming", "prevent tiktok", "prevent youtube",
+                          "block youtube", "block tiktok", "block facebook",
+                          "block netflix", "stop tiktok", "stop gaming"),
+    "unblock_application": ("unblock youtube", "unblock tiktok", "unblock facebook",
+                            "unblock netflix", "unblock gaming", "unlock youtube",
+                            "unlock tiktok", "allow tiktok", "allow youtube"),
+    "block_internet": ("block internet", "cut off wifi", "disable internet",
+                       "turn off internet access"),
+    "unblock_internet": ("unblock internet", "restore wifi access", "restore wifi",
+                         "reconnect to the internet", "connect to the internet again"),
 }
 
 _INFORMATION_SIGNALS: dict[str, set[str]] = {
@@ -175,7 +189,7 @@ def resolve_scenario(text: str, config: dict[str, Any]) -> ScenarioResolution:
                      "cut off", "turn off internet")))
     explicit_unblock = "remove" in tokens and "block" in tokens
     unblock_phrases = ("unblock", "restore", "allow", "reconnect", "back on",
-                       "use the internet again", "use youtube again")
+                       "use the internet again", "use youtube again", "unlock")
     is_unblock = explicit_unblock or (
         bool(_contains_any(normalized, unblock_phrases)) and not explicit_block)
     is_block = explicit_block or (

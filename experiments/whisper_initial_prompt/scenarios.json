@@ -1,6 +1,6 @@
 {
-  "global_prompt_version": "v4-clean-mbps-EDITED",
-  "global_prompt": "Router assistant transcript. Enable guest Wi-Fi and turn off the guest network. Limit the phone to 50 Mbps and set the laptop bandwidth to 20 Mbps. Optimize gaming for the PC, boost YouTube, and prioritize Netflix for the smart TV. Block TikTok on the tablet and unblock it again. Check the router status, gateway information, and router uptime. Check internet connection quality and open the QoS page. Which devices are playing games. Which clients are connected. Show device info for the tablet. Restore Wi-Fi access. Block internet for the phone. Check the IP and status of the router.Show all online devices.",
+  "global_prompt_version": "v5-prioritize-prevent-unblock",
+  "global_prompt": "Router assistant transcript. Enable guest Wi-Fi and turn off the guest network. Limit the phone to 50 Mbps and set the laptop bandwidth to 20 Mbps. Optimize gaming for the PC, boost YouTube, and prioritize Netflix for the smart TV. Prioritize gaming traffic. Block TikTok on the tablet. Prevent gaming on the laptop. Unblock YouTube for the tablet. Unblock internet access. Check the router status, gateway information, and router uptime. Check internet connection quality and open the QoS page. Show the active gaming sessions. Which devices are playing games. Which clients are connected right now. Show all online devices. Show device info for the tablet. Get the connection details for my phone. Restore Wi-Fi access. Block internet for the phone. Check the IP and status of the router.",
   "slots": {
     "people": [
       "my son",
@@ -86,10 +86,10 @@
       "id": "online_devices",
       "number": 4,
       "name": "Online devices",
-      "prompt": "Show all online devices. Which clients are connected right now? List the devices currently using Wi-Fi.",
+      "prompt": "Which clients are connected right now? Show all online devices. List the devices currently using Wi-Fi.",
       "examples": [
-        "Show all online devices.",
         "Which clients are connected right now?",
+        "Show all online devices.",
         "List the devices currently using Wi-Fi.",
         "Who is online right now?",
         "What is connected to my Wi-Fi?",
@@ -100,11 +100,11 @@
       "id": "gaming_sessions",
       "number": 5,
       "name": "Active sessions",
-      "prompt": "Who is gaming right now? Which devices are playing games? Show the active gaming sessions.",
+      "prompt": "Show the active gaming sessions. Which devices are playing games? Who is gaming right now?",
       "examples": [
-        "Who is gaming right now?",
-        "Which devices are playing games?",
         "Show the active gaming sessions.",
+        "Which devices are playing games?",
+        "Who is gaming right now?",
         "Who is gaming, video, or call right now?",
         "Is anyone playing games?",
         "Show all active game sessions."
@@ -128,14 +128,15 @@
       "id": "open_qos",
       "number": 7,
       "name": "Optimize an app",
-      "prompt": "Optimize gaming for the PC. Boost YouTube on my laptop. Prioritize Netflix for the smart TV. Open the QoS page.",
+      "prompt": "Prioritize Netflix for the smart TV. Prioritize gaming for the PC. Optimize gaming for the PC. Boost YouTube on my laptop. Open the QoS page.",
       "examples": [
+        "Prioritize Netflix for the smart TV.",
+        "Prioritize gaming for the PC.",
+        "Prioritize YouTube on my laptop.",
         "Optimize gaming for the PC.",
         "Boost YouTube on my laptop.",
-        "Prioritize Netflix for the smart TV.",
         "Open the QoS page.",
-        "Show what each device is doing.",
-        "Which devices are gaming or streaming video?"
+        "Show what each device is doing."
       ]
     },
     {
@@ -185,11 +186,12 @@
       "number": 11,
       "name": "Block an app",
       "canonical_action": "block_internet",
-      "prompt": "Block YouTube for the tablet. Stop TikTok on my child's phone. Prevent gaming on the laptop.",
+      "prompt": "Prevent gaming on the laptop. Block YouTube for the tablet. Stop TikTok on my child's phone.",
       "examples": [
+        "Prevent gaming on the laptop.",
         "Block YouTube for the tablet.",
         "Stop TikTok on my child's phone.",
-        "Prevent gaming on the laptop.",
+        "Prevent TikTok on my phone.",
         "Do not allow YouTube on the smart TV.",
         "Block Facebook for my mom."
       ]
@@ -199,9 +201,10 @@
       "number": 12,
       "name": "Unblock an app",
       "canonical_action": "unblock_internet",
-      "prompt": "Unblock YouTube for the tablet. Allow TikTok on my phone again. Remove blocking gaming from the laptop.",
+      "prompt": "Unblock YouTube for the tablet. Unblock TikTok on my phone. Allow TikTok on my phone again. Remove blocking gaming from the laptop.",
       "examples": [
         "Unblock YouTube for the tablet.",
+        "Unblock TikTok on my phone.",
         "Allow TikTok on my phone again.",
         "Remove blocking gaming from the laptop.",
         "Turn Netflix back on for the living room TV.",
