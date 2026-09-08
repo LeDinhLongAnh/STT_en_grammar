@@ -1,0 +1,15 @@
+# Hotwords cho Pipeline B (Context-aware STT)
+# Moi dong 1 tu hoac cum tu.
+# Dinh dang: <tu/cum tu> :<diem so> (khuyen nghi 4.0 - 6.0 cho tu tieng Anh)
+
+WIFI :4.5
+LAPTOP :4.5
+GAME :4.0
+YOUTUBE :4.0
+NETFLIX :4.5
+TIKTOK :4.5
+INTERNET :4.5
+MBPS :4.0
+QOS:3.0
+CHẶN :3.0
+CẮT :3.0

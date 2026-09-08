@@ -1,0 +1,52 @@
+# English STT models for contextual-biasing
+#
+# Format (whitespace separated, '#' starts a comment):
+#   <id>  <archive-or-file>  <family>  <tier>  <notes>
+#
+#   id       : directory name created under models/
+#   archive  : asset name in the k2-fsa/sherpa-onnx "asr-models" release
+#   family   : transducer | online-transducer | whisper | moonshine
+#   tier     : core  -> downloaded by default
+#              extra -> downloaded with --all
+#
+# ---------------------------------------------------------------------------
+# BIASING ONLY WORKS ON THE TWO TRANSDUCER FAMILIES.
+# ---------------------------------------------------------------------------
+# Not because of the encoder. Biasing is a prefix tree over hotword tokens that
+# boosts the beam as tokens are emitted, so it needs a decoder that emits tokens
+# one at a time under a beam -- i.e. a transducer. Whisper, Moonshine and the
+# CTC families have no such hook in sherpa-onnx. Note the pair that proves the
+# point: `zipformer-ctc` has the SAME Zipformer encoder and cannot be biased,
+# while the NeMo Parakeet below is not a Zipformer at all and can.
+#
+# A baseline you cannot bias is still worth having -- it answers "is the accent
+# problem in the acoustic model or in the language prior?" -- but selecting one
+# turns the feature off, and the dashboard says so rather than pretending.
+#
+# `online-transducer` (streaming) is biasable, but it loads under a different
+# recogniser, sees no right context, and the only English export is far over the
+# 200 MB device budget. It is a dashboard comparison, not a deployment
+# candidate, and ModelRegistry deliberately never picks one as the default.
+#
+# Both transducer families also need a bpe.vocab, which download_models.sh
+# derives (see scripts/bpe_sources.txt). Without it biasing silently degrades
+# to nothing.
+
+# --- biasing-capable ------------------------------------------------------
+sherpa-onnx-zipformer-small-en-2023-06-26  sherpa-onnx-zipformer-small-en-2023-06-26.tar.bz2  transducer  core   PRIMARY: 27 MB int8, RTF ~0.04, biasing
+sherpa-onnx-zipformer-en-2023-06-26        sherpa-onnx-zipformer-en-2023-06-26.tar.bz2        transducer  core   medium zipformer: better WER, ~3x the weights, biasing
+sherpa-onnx-zipformer-large-en-2023-06-26  sherpa-onnx-zipformer-large-en-2023-06-26.tar.bz2  transducer  extra  large zipformer: best WER of the family, biasing
+sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8  sherpa-onnx-nemo-parakeet_tdt_transducer_110m-en-36000-int8.tar.bz2  transducer  extra  NeMo TDT 110M: strong, heavier, biasing
+
+# --- biasable but streaming: dashboard comparison, NOT for the device -----
+# Loads under the online recogniser. Its int8 encoder alone is 127 MB, which is
+# over the whole device budget, and a chunk-wise encoder has no right context so
+# its WER is worse than the offline models above at any size. Here to make the
+# streaming-vs-offline question measurable.
+sherpa-onnx-streaming-zipformer-en-2023-02-21  sherpa-onnx-streaming-zipformer-en-2023-02-21.tar.bz2  online-transducer  extra  streaming zipformer: biasable, 128 MB int8, over budget
+
+# --- cannot be biased (baselines only) ------------------------------------
+sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27  sherpa-onnx-moonshine-tiny-en-quantized-2026-02-27.tar.bz2  moonshine  core   short-utterance specialist, NO biasing
+sherpa-onnx-whisper-base.en                sherpa-onnx-whisper-base.en.tar.bz2                whisper     core   encoder-decoder baseline, NO biasing (no initial_prompt either), 153 MB
+sherpa-onnx-whisper-tiny.en                sherpa-onnx-whisper-tiny.en.tar.bz2                whisper     extra  smallest whisper, NO biasing
+sherpa-onnx-moonshine-base-en-quantized-2026-02-27  sherpa-onnx-moonshine-base-en-quantized-2026-02-27.tar.bz2  moonshine  extra  strongest non-biasing small option

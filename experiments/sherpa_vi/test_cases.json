@@ -1,0 +1,122 @@
+[
+    {
+        "id": "network_status_001",
+        "scenario": "Network status",
+        "intent": "NETWORK_INFORMATION",
+        "reference": "Wi-Fi có ổn định không?",
+        "global_context": [
+            "Home router voice commands.",
+            "Guest Wi-Fi, guest network, Wi-Fi khách, mạng khách.",
+            "Bandwidth limit, giới hạn băng thông, Mbps, megabit.",
+            "Optimize, boost, prioritize, tối ưu, tăng tốc, ưu tiên.",
+            "YouTube, TikTok, Netflix, gaming, game.",
+            "Block, chặn, cấm, khóa.",
+            "Unblock, bỏ chặn, mở lại.",
+            "Internet access, Wi-Fi access, truy cập Internet.",
+            "Online devices, thiết bị online, thiết bị đang kết nối.",
+            "Active sessions, phiên đang hoạt động.",
+            "Router status, router information, gateway.",
+            "Device information, IP address, connection details.",
+            "Network status, network quality, connection quality, Wi-Fi stability."
+        ],
+        "scenario_context": [
+            "network, Wi-Fi, internet, connection, stable, stability, quality, network status, ổn định, mạng, kết nối"
+        ]
+    },
+    {
+        "id": "guest_wifi_001",
+        "scenario": "Guest Wi-Fi",
+        "intent": "GUEST_WIFI",
+        "reference": "Bật wifi khách lên giúp tôi.",
+        "global_context": [
+            "Home router voice commands.",
+            "Guest Wi-Fi, guest network, Wi-Fi khách, mạng khách.",
+            "Bandwidth limit, giới hạn băng thông, Mbps, megabit.",
+            "Optimize, boost, prioritize, tối ưu, tăng tốc, ưu tiên.",
+            "YouTube, TikTok, Netflix, gaming, game.",
+            "Block, chặn, cấm, khóa.",
+            "Unblock, bỏ chặn, mở lại.",
+            "Internet access, Wi-Fi access, truy cập Internet.",
+            "Online devices, thiết bị online, thiết bị đang kết nối.",
+            "Active sessions, phiên đang hoạt động.",
+            "Router status, router information, gateway.",
+            "Device information, IP address, connection details.",
+            "Network status, network quality, connection quality, Wi-Fi stability."
+        ],
+        "scenario_context": [
+            "wifi khách, mạng khách, guest wifi, guest network, bật, mở, giúp tôi"
+        ]
+    },
+    {
+        "id": "bandwidth_limit_001",
+        "scenario": "Bandwidth limit",
+        "intent": "BANDWIDTH_LIMIT",
+        "reference": "Giới hạn băng thông điện thoại xuống 50 Mbps.",
+        "global_context": [
+            "Home router voice commands.",
+            "Guest Wi-Fi, guest network, Wi-Fi khách, mạng khách.",
+            "Bandwidth limit, giới hạn băng thông, Mbps, megabit.",
+            "Optimize, boost, prioritize, tối ưu, tăng tốc, ưu tiên.",
+            "YouTube, TikTok, Netflix, gaming, game.",
+            "Block, chặn, cấm, khóa.",
+            "Unblock, bỏ chặn, mở lại.",
+            "Internet access, Wi-Fi access, truy cập Internet.",
+            "Online devices, thiết bị online, thiết bị đang kết nối.",
+            "Active sessions, phiên đang hoạt động.",
+            "Router status, router information, gateway.",
+            "Device information, IP address, connection details.",
+            "Network status, network quality, connection quality, Wi-Fi stability."
+        ],
+        "scenario_context": [
+            "giới hạn băng thông, tốc độ, điện thoại, Mbps, megabit, bandwidth limit, 50, năm mươi, xuống"
+        ]
+    },
+    {
+        "id": "block_app_001",
+        "scenario": "Block app",
+        "intent": "BLOCK_APP",
+        "reference": "Chặn YouTube trên máy tính bảng.",
+        "global_context": [
+            "Home router voice commands.",
+            "Guest Wi-Fi, guest network, Wi-Fi khách, mạng khách.",
+            "Bandwidth limit, giới hạn băng thông, Mbps, megabit.",
+            "Optimize, boost, prioritize, tối ưu, tăng tốc, ưu tiên.",
+            "YouTube, TikTok, Netflix, gaming, game.",
+            "Block, chặn, cấm, khóa.",
+            "Unblock, bỏ chặn, mở lại.",
+            "Internet access, Wi-Fi access, truy cập Internet.",
+            "Online devices, thiết bị online, thiết bị đang kết nối.",
+            "Active sessions, phiên đang hoạt động.",
+            "Router status, router information, gateway.",
+            "Device information, IP address, connection details.",
+            "Network status, network quality, connection quality, Wi-Fi stability."
+        ],
+        "scenario_context": [
+            "chặn, cấm, khóa, YouTube, máy tính bảng, tablet, trên"
+        ]
+    },
+    {
+        "id": "multi_intent_001",
+        "scenario": "Multi-intent",
+        "intent": "BLOCK_APP, ROUTER_INFORMATION",
+        "reference": "Chặn YouTube trên máy tính bảng rồi kiểm tra trạng thái router.",
+        "global_context": [
+            "Home router voice commands.",
+            "Guest Wi-Fi, guest network, Wi-Fi khách, mạng khách.",
+            "Bandwidth limit, giới hạn băng thông, Mbps, megabit.",
+            "Optimize, boost, prioritize, tối ưu, tăng tốc, ưu tiên.",
+            "YouTube, TikTok, Netflix, gaming, game.",
+            "Block, chặn, cấm, khóa.",
+            "Unblock, bỏ chặn, mở lại.",
+            "Internet access, Wi-Fi access, truy cập Internet.",
+            "Online devices, thiết bị online, thiết bị đang kết nối.",
+            "Active sessions, phiên đang hoạt động.",
+            "Router status, router information, gateway.",
+            "Device information, IP address, connection details.",
+            "Network status, network quality, connection quality, Wi-Fi stability."
+        ],
+        "scenario_context": [
+            "chặn, YouTube, máy tính bảng, kiểm tra, trạng thái, router, thông tin, rồi"
+        ]
+    }
+]

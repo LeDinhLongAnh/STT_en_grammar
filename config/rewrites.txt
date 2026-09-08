@@ -1,0 +1,129 @@
+# ===========================================================================
+#  Rewrite rules - stage 2 of the filter
+# ===========================================================================
+#      pattern => replacement
+#
+#  Both sides are lowercased and split into words on load. An empty replacement
+#  deletes the pattern. Longer patterns are tried first.
+#
+#  ---------------------------------------------------------------------------
+#  When to add a rule here instead of a hotword
+#  ---------------------------------------------------------------------------
+#  Contextual biasing (stage 1) works inside the decoder, so it can only promote
+#  token sequences the model is capable of emitting. Some substitutions survive
+#  it anyway: if a speaker's "guest" genuinely sounds like "gas", the decoder may
+#  keep choosing "gas" even with GUEST NETWORK boosted.
+#
+#  So the order to try things is:
+#
+#    1. Add the phrase to config/hotwords.txt. Fixing it in the decoder is
+#       strictly better - it changes the hypothesis rather than patching the
+#       output, and it generalises to nearby phrasings. (The boost is global, so
+#       raise asr.hotwords_score only if a lot of phrases are underperforming;
+#       raising it for one is how you get hallucinations on the others.)
+#    2. If it still comes out wrong the same way twice, add a rule here.
+#
+#  A rule is SURGICAL: it repairs one specific observed substitution. Resist the
+#  temptation to make it general. The tempting alternative - a fuzzy
+#  nearest-neighbour pass over the whole transcript - fixes the case you were
+#  looking at and quietly corrupts words you were not.
+#
+#  Keep the table acyclic: "a => b" alongside "b => a" would fight. Application
+#  is capped at four passes so a cycle terminates instead of hanging, but the
+#  result would be arbitrary.
+#
+#  The dashboard shows which rules fired on each utterance, so a rule that never
+#  fires is visible and can be deleted.
+# ===========================================================================
+
+
+# --- words the recogniser splits that should be one token ------------------
+# These are not accent problems; the model simply emits them as two words.
+wi fi        => wifi
+why fi       => wifi
+wife i       => wifi
+wire less    => wireless
+net work     => network
+fire wall    => firewall
+band width   => bandwidth
+pass word    => password
+un block     => unblock
+re boot      => reboot
+re start     => restart
+you tube     => youtube
+face book    => facebook
+tik tok      => tiktok
+insta gram   => instagram
+q o s        => qos
+speedtest    => speed test
+
+# --- soft final consonants -------------------------------------------------
+# The characteristic Vietnamese-accent truncation. "guest" is by far the worst
+# offender in this vocabulary, which is why GUEST NETWORK also carries the
+# highest hotword boost.
+gues         => guest
+guess        => guest
+gest         => guest
+gas          => guest
+gust         => guest
+ghost        => guest
+
+# --- devoicing and vowel drift --------------------------------------------
+reboard      => reboot
+rebood       => reboot
+reboo        => reboot
+divices      => devices
+divice       => device
+debices      => devices
+conection    => connection
+connexion    => connection
+bandwith     => bandwidth
+bandwidt     => bandwidth
+firewell     => firewall
+farewell     => firewall
+lemet        => limit
+lemit        => limit
+stato        => status
+
+# ===========================================================================
+#  Observed on the synthetic corpus (scripts/make_tts_corpus.ps1)
+# ===========================================================================
+#  These come from running tests/data/manifest-tts.tsv through the models and
+#  copying down what actually came out. Two caveats that matter:
+#
+#  1. That corpus is CLEAN NATIVE SPEECH. It proves the model does not know a
+#     word; it says nothing about the Vietnamese/Indian accent case. Rules found
+#     here are a floor. Keep recording tests/data/clips.
+#  2. Whisper and the zipformers fail DIFFERENTLY on the same phrase, so a table
+#     tuned on one is mistuned for the other. "unblock" arrives as "un block"
+#     from a zipformer and as "on block" from Whisper; only the first was here.
+#     Whisper cannot be biased at all, so stage 2 is its only lever.
+#
+#  Every one of these survived biasing at boost 2.0 through 6.0 -- raising the
+#  boost did not fix them and at 8.0 it broke two other clips. They are stage-1
+#  misses, not stage-1 undertuning.
+
+# --- both families: "unblock" heard as two words ---------------------------
+# Whisper x2, zipformer x1. Risk: a literal "turn on block ..." would be
+# rewritten. Nothing in the target vocabulary says that.
+on block     => unblock
+
+# --- compound splits, same category as "wi fi" above ----------------------
+any one      => anyone
+guestwife i  => guest wifi
+bend with    => bandwidth
+setband with => set bandwidth
+
+# --- Whisper hears the letters, not the word ------------------------------
+# Kept as the full phrase rather than "u o s => qos": three stray letters are
+# too generic a pattern to rewrite on their own.
+open u o s   => open qos
+
+# --- zipformer only: "online" and "internet" mangled ----------------------
+unlined      => online
+unlied       => online
+interronet   => internet
+
+# --- zipformer only: "info" heard as a real word --------------------------
+# Anchored on "device" so a genuine "infer" elsewhere is left alone.
+device infer => device info

@@ -1,0 +1,6 @@
+stt,thoi_gian,nguon_audio,reference,pipeline_a,pipeline_b,wer_a,wer_b,cer_a,cer_b
+1,2026-09-07 14:44:42,ESP32 Mic,,ALO,ALO,,,,
+2,2026-09-07 14:47:02,ESP32 Mic,,XIN CHÀO,XIN CHÀO,,,,
+3,2026-09-07 14:47:09,ESP32 Mic,,XIN CHÀO,XIN CHÀO,,,,
+4,2026-09-07 14:47:10,ESP32 Mic,,XIN CHÀO,XIN CHÀO,,,,
+5,2026-09-07 14:48:04,ESP32 Mic,,XIN CHÀO,XIN CHÀO,,,,

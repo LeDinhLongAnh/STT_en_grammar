@@ -1,0 +1,237 @@
+{
+  "global_prompt_version": "v1",
+  "global_prompt": "bat\ntat\nmo\nwifi khach\nmang khach\nwifi phu\ngioi han\nbop bang thong\ndat toc do\n10\n20\n50\nmbps\nmegabit\ntoi uu\ntang toc\nuu tien\nchan\ncam\ncat\nbo chan\ngo chan\ncho phep\ncat mang\ninternet\ntuy cap\nket noi\nbinh thuong\nlai\nai dang choi\nxem video\nthiet bi nao\nphien hoat dong\nco nhung\nliet ke\nkiem tra trang thai\nthong tin\nbo dinh tuyen\nrouter\nchi tiet\nip\nhom nay the nao\nchat luong\non dinh khong\nmay tinh bang\ndien thoai\nlaptop\ntivi thong minh\nyoutube\ntiktok\nnetflix\ngame\nlien quan\nfree fire\nfifa\nva\nroi\nsau do\ntiep theo",
+  "slots": {
+    "people": [
+      "con trai",
+      "con gai",
+      "bo",
+      "me",
+      "anh",
+      "em"
+    ],
+    "devices": [
+      "dien thoai",
+      "may tinh bang",
+      "laptop",
+      "tivi",
+      "tivi thong minh",
+      "may tinh"
+    ],
+    "applications": {
+      "YouTube": ["youtube", "diu túp", "du túp", "diu tu bi"],
+      "TikTok": ["tiktok", "tóp tóp", "tíc tốc"],
+      "Netflix": ["netflix", "nét phờ lít", "lét phích"],
+      "Facebook": ["facebook", "phây búc", "phây", "phéc búc"],
+      "game": ["game", "gêm", "ghêm"],
+      "Lien Quan": ["liên quân"],
+      "Free Fire": ["free fire", "phờ ri phai", "phi phai"],
+      "FIFA": ["fifa", "phi pha"]
+    },
+    "networks": {
+      "wifi": ["wifi", "wai phai", "oai phai", "khoai phai", "quay phay", "quay phai"]
+    },
+    "bandwidth_values": [
+      "10",
+      "20",
+      "50",
+      "100"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "network_status",
+      "number": 1,
+      "name": "Trang thai mang",
+      "prompt": "kiem tra trang thai mang\nmang hom nay the nao\nchat luong ket noi\non dinh khong\ntoc do mang\nkiem tra mang",
+      "examples": [
+        "Trang thai mang hien tai the nao?",
+        "Kiem tra trang thai mang.",
+        "Mang hom nay the nao?",
+        "Chat luong ket noi co on khong?",
+        "Mang co on dinh khong?",
+        "Cho toi biet tinh trang mang.",
+        "Ket noi mang dang nhu the nao?",
+        "Mang co van de gi khong?"
+      ]
+    },
+    {
+      "id": "router_status",
+      "number": 2,
+      "name": "Trang thai router",
+      "prompt": "trang thai router\nbo dinh tuyen\nthong tin router\nrouter dang nhu the nao\nkiem tra router",
+      "examples": [
+        "Trang thai router hien tai the nao?",
+        "Kiem tra router.",
+        "Router dang hoat dong nhu the nao?",
+        "Cho toi thong tin bo dinh tuyen.",
+        "Router co van de gi khong?",
+        "Tinh trang router ra sao?",
+        "Bo dinh tuyen hoat dong binh thuong khong?",
+        "Xem thong tin router."
+      ]
+    },
+    {
+      "id": "wifi_device_info",
+      "number": 3,
+      "name": "Chi tiet thiet bi Wi-Fi",
+      "prompt": "chi tiet ket noi\ndia chi ip\nthong tin thiet bi\ntrang thai thiet bi\nthiet bi dang dung gi",
+      "examples": [
+        "Cho toi thong tin ve dien thoai con trai.",
+        "Dia chi IP cua laptop la gi?",
+        "Chi tiet ket noi cua may tinh bang.",
+        "Thong tin thiet bi cua anh.",
+        "Thiet bi do dang dung bao nhieu bang thong?",
+        "Xem chi tiet ket noi thiet bi.",
+        "IP cua tivi la bao nhieu?",
+        "Thiet bi nao dang co dia chi nay?"
+      ]
+    },
+    {
+      "id": "online_devices",
+      "number": 4,
+      "name": "Thiet bi dang ket noi",
+      "prompt": "thiet bi dang ket noi\nai dang online\nliet ke thiet bi\nco nhung thiet bi nao\ndang dung wifi",
+      "examples": [
+        "Liet ke cac thiet bi dang ket noi.",
+        "Co nhung thiet bi nao dang online?",
+        "Ai dang dung mang nha minh?",
+        "Co bao nhieu thiet bi dang ket noi?",
+        "Cac thiet bi dang ket noi vao wifi la gi?",
+        "Xem danh sach thiet bi online.",
+        "Cho toi biet thiet bi nao dang online.",
+        "Nhung thiet bi nao dang dung internet?"
+      ]
+    },
+    {
+      "id": "active_sessions",
+      "number": 5,
+      "name": "Phien hoat dong (game/video)",
+      "prompt": "ai dang choi game\nxem video\nphien hoat dong\ndang stream\ndang choi\nai dang dung mang nhieu",
+      "examples": [
+        "Ai dang choi game bay gio?",
+        "Thiet bi nao dang xem video?",
+        "Xem phien hoat dong hien tai.",
+        "Co ai dang choi game khong?",
+        "Thiet bi nao dang dung mang nhieu nhat?",
+        "Ai dang stream bay gio?",
+        "Con trai co dang choi game khong?",
+        "Phien nao dang chay hien tai?"
+      ]
+    },
+    {
+      "id": "guest_wifi",
+      "number": 6,
+      "name": "Wi-Fi khach",
+      "prompt": "bat wifi khach\ntat wifi khach\nmo mang khach\nwifi phu\nkich hoat wifi khach\nvo hieu hoa mang khach",
+      "examples": [
+        "Bat wifi khach.",
+        "Tat wifi khach.",
+        "Mo mang khach.",
+        "Tat mang khach di.",
+        "Kich hoat wifi phu.",
+        "Tat wifi phu.",
+        "Mo wifi khach len.",
+        "Tat mang danh cho khach."
+      ]
+    },
+    {
+      "id": "bandwidth_limit",
+      "number": 7,
+      "name": "Gioi han bang thong",
+      "prompt": "gioi han bang thong\nbop bang thong\ndat toc do\ngioi han toc do\nmbps\nmegabit\ncat giam toc do",
+      "examples": [
+        "Gioi han toc do dien thoai con trai xuong 10 Mbps.",
+        "Bop bang thong laptop cua anh xuong 20.",
+        "Dat gioi han toc do may tinh bang la 50 Mbps.",
+        "Cat giam toc do tivi xuong con 10.",
+        "Gioi han bang thong thiet bi cua em.",
+        "Dat toc do toi da 20 Mbps cho laptop.",
+        "Bop bang thong xuong 50 megabit.",
+        "Gioi han toc do mang cho dien thoai la 100 Mbps."
+      ]
+    },
+    {
+      "id": "block_internet",
+      "number": 8,
+      "name": "Chan internet",
+      "prompt": "chan internet\ncat mang\nngat ket noi\nkhoa mang\ncam truy cap internet\ntat internet",
+      "examples": [
+        "Chan internet cua con trai.",
+        "Cat mang dien thoai cua em.",
+        "Ngat ket noi internet laptop cua anh.",
+        "Khoa mang may tinh bang.",
+        "Khong cho tivi vao internet.",
+        "Tat internet cho thiet bi cua bo.",
+        "Cam laptop truy cap internet.",
+        "Cat internet cua thiet bi do di."
+      ]
+    },
+    {
+      "id": "unblock_internet",
+      "number": 9,
+      "name": "Bo chan internet",
+      "prompt": "bo chan internet\ngo chan mang\ncho phep truy cap lai\nmo mang tro lai\nket noi lai internet\nkhoi phuc mang",
+      "examples": [
+        "Bo chan internet cua con trai.",
+        "Go chan mang cho laptop cua anh.",
+        "Cho phep dien thoai vao internet lai.",
+        "Mo mang tro lai cho may tinh bang.",
+        "Khoi phuc ket noi internet cho tivi.",
+        "Ket noi lai internet cho thiet bi cua em.",
+        "Xoa lenh chan internet cho dien thoai.",
+        "Cho laptop dung internet lai."
+      ]
+    },
+    {
+      "id": "block_application",
+      "number": 10,
+      "name": "Chan ung dung",
+      "canonical_action": "block_internet",
+      "prompt": "chan youtube\ncam tiktok\nchan netflix\nkhoa facebook\ncam game\nngan chan ung dung",
+      "examples": [
+        "Chan YouTube cho con trai.",
+        "Cam TikTok tren dien thoai cua em.",
+        "Chan Netflix tren tivi.",
+        "Khoa Facebook cho laptop.",
+        "Khong cho dien thoai vao YouTube.",
+        "Cam game tren thiet bi cua con.",
+        "Chan Lien Quan tren dien thoai bo.",
+        "Khong cho may tinh bang dung TikTok."
+      ]
+    },
+    {
+      "id": "unblock_application",
+      "number": 11,
+      "name": "Bo chan ung dung",
+      "canonical_action": "unblock_internet",
+      "prompt": "bo chan youtube\ngo chan tiktok\ncho phep netflix lai\nmo lai youtube\nbo khoa facebook",
+      "examples": [
+        "Bo chan YouTube cho con trai.",
+        "Go chan TikTok tren dien thoai.",
+        "Cho phep Netflix tren tivi lai.",
+        "Mo lai Facebook cho laptop.",
+        "Cho may tinh bang dung YouTube lai.",
+        "Bo khoa game cho dien thoai.",
+        "Go lenh chan Lien Quan.",
+        "Cho phep thiet bi do dung TikTok tro lai."
+      ]
+    },
+    {
+      "id": "optimize_app",
+      "number": 12,
+      "name": "Uu tien / Toi uu ung dung",
+      "prompt": "uu tien\ntoi uu\ntang toc\nuu tien bang thong\ntoi uu cho game\ntang toc youtube",
+      "examples": [
+        "Uu tien bang thong cho game.",
+        "Toi uu mang cho YouTube.",
+        "Tang toc cho laptop cua anh.",
+        "Uu tien thiet bi cua con trai.",
+        "Toi uu cho Lien Quan.",
+        "Tang toc do mang cho tivi.",
+        "Uu tien Netflix tren tivi.",
+        "Toi uu bang thong cho may tinh bang."
+      ]
+    }
+  ]
+}

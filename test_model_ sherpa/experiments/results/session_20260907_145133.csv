@@ -1,0 +1,5 @@
+stt,thoi_gian,nguon_audio,reference,pipeline_a,pipeline_b,wer_a,wer_b,cer_a,cer_b
+1,2026-09-07 14:53:12,Mic,,KIỂM TRA CHẤT LƯỢNG KẾT NỐI,KIỂM TRA CHẤT LƯỢNG KẾT NỐI,,,,
+2,2026-09-07 14:54:32,ESP32 Mic,,KHÔNG,KHÔNG,,,,
+3,2026-09-07 14:54:38,ESP32 Mic,,ĐÂY LÀ MỘT,ĐÂY LÀ MỘT,,,,
+4,2026-09-07 14:55:04,ESP32 Mic,,CHÀO CÁC BẠN,CHÀO CÁC BẠN,,,,

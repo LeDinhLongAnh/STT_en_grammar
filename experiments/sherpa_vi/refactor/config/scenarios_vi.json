@@ -1,0 +1,98 @@
+[
+  {
+    "scenario_id": "guest_wifi",
+    "name": "Mạng khách",
+    "intents": [
+      {
+        "intent": "turn_on_guest_wifi",
+        "hotwords": ["wifi", "oai phai", "wai phai", "mạng khách", "bật", "mở", "kích hoạt"],
+        "examples": [
+          "Bật mạng wifi khách lên",
+          "Mở mạng khách giúp tôi",
+          "Kích hoạt mạng khách"
+        ],
+        "canonical_templates": [
+          "Bật mạng wifi khách"
+        ],
+        "required_slots": []
+      },
+      {
+        "intent": "turn_off_guest_wifi",
+        "hotwords": ["wifi", "oai phai", "mạng khách", "tắt", "đóng", "ngắt"],
+        "examples": [
+          "Tắt mạng wifi khách đi",
+          "Đóng mạng khách giúp tôi"
+        ],
+        "canonical_templates": [
+          "Tắt mạng wifi khách"
+        ],
+        "required_slots": []
+      }
+    ]
+  },
+  {
+    "scenario_id": "bandwidth_limit",
+    "name": "Giới hạn băng thông",
+    "intents": [
+      {
+        "intent": "set_bandwidth_limit",
+        "hotwords": [
+          "băng thông",
+          "giới hạn",
+          "tốc độ",
+          "megabit",
+          "điện thoại",
+          "thiết bị",
+          "laptop",
+          "máy tính bảng",
+          "tivi"
+        ],
+        "examples": [
+          "đặt tốc độ băng thông điện thoại ở mức hai mươi megabit",
+          "giới hạn băng thông laptop xuống mười megabit",
+          "đặt giới hạn băng thông là năm mươi megabit"
+        ],
+        "canonical_templates": [
+          "Đặt giới hạn tốc độ cho {device} là {value} megabit"
+        ],
+        "required_slots": [
+          "device",
+          "value"
+        ]
+      }
+    ]
+  },
+  {
+    "scenario_id": "block_application",
+    "name": "Chặn ứng dụng",
+    "intents": [
+      {
+        "intent": "block_app",
+        "hotwords": [
+          "chặn",
+          "cấm",
+          "khóa",
+          "youtube",
+          "du túp",
+          "tiktok",
+          "tích tốc",
+          "facebook",
+          "phây búc",
+          "game",
+          "netflix"
+        ],
+        "examples": [
+          "chặn youtube trên máy tính bảng",
+          "cấm tiktok trên điện thoại của con",
+          "khóa game trên laptop"
+        ],
+        "canonical_templates": [
+          "Chặn ứng dụng {application} trên {device}"
+        ],
+        "required_slots": [
+          "application"
+        ]
+      }
+    ]
+  }
+]

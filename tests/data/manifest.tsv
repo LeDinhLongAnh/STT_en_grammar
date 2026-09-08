@@ -1,0 +1,57 @@
+# Evaluation manifest -- the ground truth for `vcc_cli --eval`.
+#
+#   <wav path, relative to this file>  TAB  <what you actually said>
+#
+# Tab-separated, because a reference transcript contains spaces. '#' comments.
+# Case and punctuation do not matter: both sides are tokenised before scoring.
+#
+# HOW TO BUILD THIS CORPUS
+#
+#   1. Record. Push-to-talk, one phrase per take:
+#
+#        build\bin\vcc_listen.exe --save-dir tests\data\clips
+#
+#      Say each phrase you care about a few times: normal, fast, quiet, from
+#      across the room. vcc_listen prints the manifest line to paste here.
+#
+#   2. Label. Write down what you MEANT to say, not what the recogniser heard.
+#      That is the whole point of a reference.
+#
+#   3. Measure:
+#
+#        build\bin\vcc_cli.exe --eval tests\data\manifest.tsv
+#
+#      Read "clips worsened" first -- a filter that raises the average while
+#      breaking three utterances is not ready. Then the relative gain.
+#
+#   4. Change one thing (a hotword, its boost, a rewrite rule), re-run, compare.
+#      `--min-gain 20` turns it into a pass/fail gate.
+#
+# The rows below are placeholders showing the format; --eval reports missing
+# files rather than failing, so it is safe to run before you have recorded
+# anything. Replace them with your own takes.
+#
+# Vocabulary from the target scenarios: network/router status, device info,
+# online devices, gaming sessions, guest wifi, QoS, bandwidth limit,
+# block/unblock internet and applications.
+
+clips/take-0001.wav	what is my network status
+clips/take-0002.wav	check network status
+clips/take-0003.wav	how is the router doing
+clips/take-0004.wav	show me the router status
+clips/take-0005.wav	who is online right now
+clips/take-0006.wav	list online devices
+clips/take-0007.wav	is anyone playing games
+clips/take-0008.wav	show gaming sessions
+clips/take-0009.wav	turn on guest wifi
+clips/take-0010.wav	turn off guest network
+clips/take-0011.wav	enable guest wifi
+clips/take-0012.wav	open qos
+clips/take-0013.wav	what is each device doing
+clips/take-0014.wav	set bandwidth limit fifty
+clips/take-0015.wav	limit speed to one hundred
+clips/take-0016.wav	block internet for my son
+clips/take-0017.wav	unblock internet for my son
+clips/take-0018.wav	block youtube on the tablet
+clips/take-0019.wav	unblock facebook
+clips/take-0020.wav	show wifi device info

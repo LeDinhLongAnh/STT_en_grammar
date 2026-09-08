@@ -1,0 +1,107 @@
+# ===========================================================================
+#  Hotword list - the vocabulary forced into the decoder
+# ===========================================================================
+#  One phrase per line. '#' starts a comment. Nothing else: there is no
+#  per-phrase score, because ONE BOOST APPLIES TO THE WHOLE LIST
+#  (asr.hotwords_score in config/app.ini, or the spinbox in the dashboard).
+#
+#  That is a deliberate simplification. sherpa-onnx does support a per-phrase
+#  score, but a per-phrase knob is a per-phrase decision and there is no way to
+#  make thirty of those well. One number can be swept against a recorded corpus
+#  in an afternoon; thirty cannot. A leftover ":2.5" on a line is accepted and
+#  ignored, with a warning, so an older file keeps working.
+#
+#  ---------------------------------------------------------------------------
+#  How this actually works, and the three ways it silently does nothing
+#  ---------------------------------------------------------------------------
+#  sherpa-onnx builds a prefix tree (a "context graph") from these phrases and
+#  adds a bonus to any decoding path that walks it. The bias is applied DURING
+#  beam search, so it changes which hypothesis wins rather than patching up the
+#  loser afterwards. That is why it can recover a word whose final consonant was
+#  never clearly pronounced.
+#
+#  It requires all three of the following, and sherpa-onnx reports no error when
+#  one is missing - it just biases nothing:
+#
+#    1. an offline TRANSDUCER model (zipformer, parakeet).  Whisper, Moonshine
+#       and the CTC families have no biasing hook at all.
+#    2. decoding_method = modified_beam_search.  greedy_search ignores hotwords.
+#    3. a bpe.vocab file beside the model, so a phrase can be tokenised into the
+#       same subword units the decoder emits.  Without it the only available
+#       modeling_unit is "cjkchar", which splits English words into single
+#       letters that never line up with anything.
+#
+#  The engine checks all three at load time and prints which one failed. The
+#  dashboard shows it too, and `vcc_cli --show-hotwords` prints the exact string
+#  the decoder is handed.
+#
+#  ---------------------------------------------------------------------------
+#  Writing good hotwords
+#  ---------------------------------------------------------------------------
+#  * PHRASES BEAT WORDS. A multi-word phrase accumulates boost across the whole
+#    sequence, so "GUEST NETWORK" pushes much harder than "GUEST" and "NETWORK"
+#    separately - and it pushes only when the words appear together, which is
+#    exactly when you want it.
+#  * CASE DOES NOT MATTER HERE. The runtime uppercases everything before handing
+#    it over, because the English BPE inventories these models ship with are
+#    uppercase.
+#  * NO '/' IN A PHRASE. It is the record separator on the per-stream API; the
+#    runtime drops such phrases and warns.
+#  * EVERY PHRASE COSTS SOMETHING. More phrases dilute the graph, and since one
+#    boost now covers all of them, a phrase you do not need makes the ones you
+#    do need weaker. Delete anything that never fires.
+#  * THE BOOST IS MODEL-SPECIFIC. A value tuned on one model is not a value for
+#    another: a more accurate model is more confident and gives up less ground.
+#    Re-sweep asr.hotwords_score after switching model.
+#  * LENGTH SANITY. A hotword longer than the utterances you expect will never
+#    fire.
+#
+#  Tune this file live: the dashboard edits it and re-decodes the audio you
+#  already recorded, with no model reload. That is the loop - speak once, then
+#  iterate on the list.
+# ===========================================================================
+
+
+# --- the router vocabulary, as phrases -------------------------------------
+GUEST NETWORK
+GUEST WIFI
+NETWORK STATUS
+ROUTER STATUS
+ONLINE DEVICES
+CONNECTED DEVICES
+DEVICE INFO
+GAMING SESSION
+BANDWIDTH LIMIT
+SPEED LIMIT
+BLOCK INTERNET
+UNBLOCK INTERNET
+FIREWALL
+PARENTAL CONTROL
+SPEED TEST
+FACTORY RESET
+WIFI PASSWORD
+# --- single words that carry the meaning -----------------------------------
+# Kept short and few on purpose: these are the words a Vietnamese speaker most
+# often loses the ending of, so a word-level boost earns its dilution.
+GUEST
+NETWORK
+BANDWIDTH
+UNBLOCK
+BLOCK
+DEVICE
+DEVICES
+ROUTER
+WIFI
+WIRELESS
+GAMING
+STATUS
+LIMIT
+ONLINE
+REBOOT
+QOS
+# --- application names -----------------------------------------------------
+YOUTUBE
+FACEBOOK
+TIKTOK
+NETFLIX
+INSTAGRAM

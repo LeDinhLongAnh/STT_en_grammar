@@ -1,0 +1,23 @@
+# Ready-to-run clean native-English floor using the project's generated TTS corpus.
+# This does not replace recordings from Vietnamese/Indian-accented speakers.
+
+../../tests/data/tts/tts-0001.wav	network_status	what is my network status
+../../tests/data/tts/tts-0002.wav	network_status	check network status
+../../tests/data/tts/tts-0003.wav	router_status	how is the router doing
+../../tests/data/tts/tts-0004.wav	router_status	show me the router status
+../../tests/data/tts/tts-0005.wav	online_devices	who is online right now
+../../tests/data/tts/tts-0006.wav	online_devices	list online devices
+../../tests/data/tts/tts-0007.wav	gaming_sessions	is anyone playing games
+../../tests/data/tts/tts-0008.wav	gaming_sessions	show gaming sessions
+../../tests/data/tts/tts-0009.wav	guest_wifi	turn on guest wifi
+../../tests/data/tts/tts-0010.wav	guest_wifi	turn off guest network
+../../tests/data/tts/tts-0011.wav	guest_wifi	enable guest wifi
+../../tests/data/tts/tts-0012.wav	open_qos	open qos
+../../tests/data/tts/tts-0013.wav	open_qos	what is each device doing
+../../tests/data/tts/tts-0014.wav	bandwidth_limit	set bandwidth limit fifty
+../../tests/data/tts/tts-0015.wav	bandwidth_limit	limit speed to one hundred
+../../tests/data/tts/tts-0016.wav	block_internet	block internet for my son
+../../tests/data/tts/tts-0017.wav	unblock_internet	unblock internet for my son
+../../tests/data/tts/tts-0018.wav	block_application	block youtube on the tablet
+../../tests/data/tts/tts-0019.wav	unblock_application	unblock facebook
+../../tests/data/tts/tts-0020.wav	wifi_device_info	show wifi device info

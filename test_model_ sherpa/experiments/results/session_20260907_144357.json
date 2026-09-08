@@ -1,0 +1,62 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-07 14:44:42",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "ALO",
+    "pipeline_b": "ALO",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-07 14:47:02",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "XIN CHÀO",
+    "pipeline_b": "XIN CHÀO",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 3,
+    "thoi_gian": "2026-09-07 14:47:09",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "XIN CHÀO",
+    "pipeline_b": "XIN CHÀO",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 4,
+    "thoi_gian": "2026-09-07 14:47:10",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "XIN CHÀO",
+    "pipeline_b": "XIN CHÀO",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 5,
+    "thoi_gian": "2026-09-07 14:48:04",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "XIN CHÀO",
+    "pipeline_b": "XIN CHÀO",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  }
+]

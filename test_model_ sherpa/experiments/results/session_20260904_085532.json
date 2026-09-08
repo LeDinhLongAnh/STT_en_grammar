@@ -1,0 +1,26 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-04 08:56:31",
+    "nguon_audio": "TTS",
+    "reference": "kiểm tra chất lượng wifi hôm nay\nAi đang chơi game\nChặn youtube trên máy của con trai",
+    "pipeline_a": "KIỂM TRA CHẤT LƯỢNG WIFI HÔM NAY AI ĐANG CHƠI GAME CHẶN YOUTUBE TRÊN MÁY CỦA CON TRAI",
+    "pipeline_b": "KIỂM TRA CHẤT LƯỢNG WIFI HÔM NAY AI ĐANG CHƠI GAME CHẶN YOUTUBE TRÊN MÁY CỦA CON TRAI",
+    "wer_a": 0.0,
+    "wer_b": 0.0,
+    "cer_a": 0.9714,
+    "cer_b": 0.9714
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-04 08:57:19",
+    "nguon_audio": "TTS",
+    "reference": "Sherpa onnx la thu vien STT nhanh va hieu qua.",
+    "pipeline_a": "SHOPER ANDS LÀ THU VIÊN ESTIT NHÂN VĂN HIỆU QUA",
+    "pipeline_b": "SHOPER ANDS LÀ THU VIÊN ESTIT NHÂN VĂN HIỆU QUA",
+    "wer_a": 0.9,
+    "wer_b": 0.9,
+    "cer_a": 0.9459,
+    "cer_b": 0.9459
+  }
+]

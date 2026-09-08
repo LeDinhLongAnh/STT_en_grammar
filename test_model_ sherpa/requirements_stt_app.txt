@@ -1,0 +1,27 @@
+# =========================================================
+# Requirements cho STT Comparison App (PySide6 Desktop)
+# Python 3.10+, Windows
+# =========================================================
+
+# --- Core STT ---
+sherpa-onnx>=1.10.0          # Python binding cho sherpa-onnx
+
+# --- Desktop UI ---
+PySide6>=6.6.0               # Qt6 bindings cho Python (thay the Gradio)
+
+# --- Audio ---
+soundfile>=0.12.1            # Doc/ghi WAV, FLAC, OGG
+scipy>=1.11.0                # Resample (resample_poly)
+numpy>=1.24.0                # Array operations
+sounddevice>=0.4.6           # Phat audio (btn Nghe lai TTS) + ghi am Mic
+
+# --- VieNeu-TTS (sinh audio test tu van ban) ---
+# VieNeu-TTS da co san trong D:\esp\Test_Model\Test_Model\models\VieNeu-TTS
+# Cac thu vien can thiet:
+# pip install sea-g2p tokenizers librosa onnxruntime soxr kaldi-native-fbank
+sea-g2p>=0.9.0
+tokenizers>=0.20.0
+librosa>=0.10.0
+
+# --- Ghi chu ---
+# gradio  <- KHONG CON CAN (da chuyen sang PySide6 desktop)

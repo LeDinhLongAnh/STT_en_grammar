@@ -1,0 +1,702 @@
+[
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0001.wav",
+    "scenario": "network_status",
+    "reference": "what is my network status",
+    "duration_s": 2.355,
+    "decodes": {
+      "none": {
+        "text": "What is my network status?",
+        "prompt": null,
+        "seconds": 2.0087923999963095,
+        "rtf": 0.8529904033954605,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "What is my network status?",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.3256201000040164,
+        "rtf": 0.5628960084942745,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "What is my network status?",
+        "prompt": "What is my network status? Check network status. Show the network status.",
+        "seconds": 1.4002715999959037,
+        "rtf": 0.5945951592339294,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0002.wav",
+    "scenario": "network_status",
+    "reference": "check network status",
+    "duration_s": 2.095,
+    "decodes": {
+      "none": {
+        "text": "Check network status.",
+        "prompt": null,
+        "seconds": 1.0032519000087632,
+        "rtf": 0.4788791885483356,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Check network status.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.0570482999901287,
+        "rtf": 0.5045576610931402,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Check network status.",
+        "prompt": "What is my network status? Check network status. Show the network status.",
+        "seconds": 1.2013646999985212,
+        "rtf": 0.573443770882349,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0003.wav",
+    "scenario": "router_status",
+    "reference": "how is the router doing",
+    "duration_s": 2.07,
+    "decodes": {
+      "none": {
+        "text": "How is the router doing?",
+        "prompt": null,
+        "seconds": 1.1759995000029448,
+        "rtf": 0.5681157004845144,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "How is the router doing?",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.122380400003749,
+        "rtf": 0.5422127536249995,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "How is the router doing?",
+        "prompt": "What is the router status? Show router status. How is the router doing?",
+        "seconds": 1.0487642999942182,
+        "rtf": 0.506649420287062,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0004.wav",
+    "scenario": "router_status",
+    "reference": "show me the router status",
+    "duration_s": 2.355,
+    "decodes": {
+      "none": {
+        "text": "Show me the router status.",
+        "prompt": null,
+        "seconds": 1.053490000005695,
+        "rtf": 0.44734182590475374,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Show me the router status.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.0551469000056386,
+        "rtf": 0.44804539278371064,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Show me the router status.",
+        "prompt": "What is the router status? Show router status. How is the router doing?",
+        "seconds": 0.9906576999928802,
+        "rtf": 0.4206614437337071,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0005.wav",
+    "scenario": "online_devices",
+    "reference": "who is online right now",
+    "duration_s": 2.095,
+    "decodes": {
+      "none": {
+        "text": "who is online right now.",
+        "prompt": null,
+        "seconds": 1.0092910999956075,
+        "rtf": 0.4817618615730823,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Who is online right now.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.0584382999950321,
+        "rtf": 0.5052211455823542,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Who is online right now?",
+        "prompt": "Show online devices. List connected devices. Who is online right now?",
+        "seconds": 1.0062529999995604,
+        "rtf": 0.48031169451052996,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0006.wav",
+    "scenario": "online_devices",
+    "reference": "list online devices",
+    "duration_s": 2.235,
+    "decodes": {
+      "none": {
+        "text": "List online devices",
+        "prompt": null,
+        "seconds": 1.202784300010535,
+        "rtf": 0.5381585234946465,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "List online devices.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.5462170000100741,
+        "rtf": 0.6918196868054023,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "List online devices.",
+        "prompt": "Show online devices. List connected devices. Who is online right now?",
+        "seconds": 1.4336998000071617,
+        "rtf": 0.6414764205848599,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0007.wav",
+    "scenario": "gaming_sessions",
+    "reference": "is anyone playing games",
+    "duration_s": 2.35,
+    "decodes": {
+      "none": {
+        "text": "Is anyone playing games?",
+        "prompt": null,
+        "seconds": 1.2314253999938956,
+        "rtf": 0.5240108085080406,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Is anyone playing games?",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.42631419999816,
+        "rtf": 0.6069422127651743,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Is anyone playing games?",
+        "prompt": "Show gaming sessions. Is any device playing a game? Who is gaming right now?",
+        "seconds": 1.1577987000055145,
+        "rtf": 0.49268029787468703,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0008.wav",
+    "scenario": "gaming_sessions",
+    "reference": "show gaming sessions",
+    "duration_s": 2.155,
+    "decodes": {
+      "none": {
+        "text": "Show gaming sessions.",
+        "prompt": null,
+        "seconds": 1.2414297999930568,
+        "rtf": 0.576069512757799,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Show gaming sessions.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.2532977999944706,
+        "rtf": 0.5815767053338611,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Show gaming sessions.",
+        "prompt": "Show gaming sessions. Is any device playing a game? Who is gaming right now?",
+        "seconds": 1.1164300000091316,
+        "rtf": 0.5180649652014533,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0009.wav",
+    "scenario": "guest_wifi",
+    "reference": "turn on guest wifi",
+    "duration_s": 2.115,
+    "decodes": {
+      "none": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": null,
+        "seconds": 1.1543783000088297,
+        "rtf": 0.5458053427937728,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.2059450000087963,
+        "rtf": 0.5701867612334733,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": "Turn on guest Wi-Fi. Turn off guest Wi-Fi. Enable the guest network. Disable the guest network.",
+        "seconds": 1.1023847999895224,
+        "rtf": 0.5212221276546205,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0010.wav",
+    "scenario": "guest_wifi",
+    "reference": "turn off guest network",
+    "duration_s": 2.225,
+    "decodes": {
+      "none": {
+        "text": "Turn off guest network.",
+        "prompt": null,
+        "seconds": 1.00741009999183,
+        "rtf": 0.45276858426599104,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Turn off guest network.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 0.976811300002737,
+        "rtf": 0.43901631460797164,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Turn off guest network.",
+        "prompt": "Turn on guest Wi-Fi. Turn off guest Wi-Fi. Enable the guest network. Disable the guest network.",
+        "seconds": 0.9197892999945907,
+        "rtf": 0.4133884494357711,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0011.wav",
+    "scenario": "guest_wifi",
+    "reference": "enable guest wifi",
+    "duration_s": 2.07,
+    "decodes": {
+      "none": {
+        "text": "Enable guest Wi-Fi.",
+        "prompt": null,
+        "seconds": 0.9210315999953309,
+        "rtf": 0.4449428019301116,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Enable guest Wi-Fi.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.0492056999937631,
+        "rtf": 0.506862657001818,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Enable guest Wi-Fi.",
+        "prompt": "Turn on guest Wi-Fi. Turn off guest Wi-Fi. Enable the guest network. Disable the guest network.",
+        "seconds": 0.9354576999903657,
+        "rtf": 0.4519119323624955,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0012.wav",
+    "scenario": "open_qos",
+    "reference": "open qos",
+    "duration_s": 1.915,
+    "decodes": {
+      "none": {
+        "text": "Open QOS.",
+        "prompt": null,
+        "seconds": 0.8902613999962341,
+        "rtf": 0.46488845952805957,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Open QoS.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.008204099998693,
+        "rtf": 0.5264773368139389,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Open QoS.",
+        "prompt": "Open QoS. Show QoS. Show what each device is doing, such as gaming or video streaming.",
+        "seconds": 0.9207317999971565,
+        "rtf": 0.48079989555987285,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0013.wav",
+    "scenario": "open_qos",
+    "reference": "what is each device doing",
+    "duration_s": 2.265,
+    "decodes": {
+      "none": {
+        "text": "What is each device doing?",
+        "prompt": null,
+        "seconds": 0.9422381999902427,
+        "rtf": 0.4159992052937054,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "What is each device doing?",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.1172412000014447,
+        "rtf": 0.4932632229586952,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "What is each device doing?",
+        "prompt": "Open QoS. Show QoS. Show what each device is doing, such as gaming or video streaming.",
+        "seconds": 1.157742999988841,
+        "rtf": 0.5111448123571041,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0014.wav",
+    "scenario": "bandwidth_limit",
+    "reference": "set bandwidth limit fifty",
+    "duration_s": 2.44,
+    "decodes": {
+      "none": {
+        "text": "Set bandwidth limit 50.",
+        "prompt": null,
+        "seconds": 0.9888574000069639,
+        "rtf": 0.40526942623236223,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Set bandwidth limit 50.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.048136199999135,
+        "rtf": 0.4295640163930881,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Set bandwidth limit fifty.",
+        "prompt": "Set the bandwidth limit to ten. Limit the speed to fifty. Set my son's bandwidth limit to one hundred.",
+        "seconds": 1.074502700008452,
+        "rtf": 0.44036995901985737,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0015.wav",
+    "scenario": "bandwidth_limit",
+    "reference": "limit speed to one hundred",
+    "duration_s": 2.33,
+    "decodes": {
+      "none": {
+        "text": "Limit speed to 100.",
+        "prompt": null,
+        "seconds": 1.1960531999939121,
+        "rtf": 0.5133275536454558,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Limit speed to 100.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.371710699997493,
+        "rtf": 0.5887170386255335,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Limit speed to one hundred.",
+        "prompt": "Set the bandwidth limit to ten. Limit the speed to fifty. Set my son's bandwidth limit to one hundred.",
+        "seconds": 1.3620111000054749,
+        "rtf": 0.5845541201740235,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0016.wav",
+    "scenario": "block_internet",
+    "reference": "block internet for my son",
+    "duration_s": 2.425,
+    "decodes": {
+      "none": {
+        "text": "Block Internet for my son.",
+        "prompt": null,
+        "seconds": 1.4951739000098314,
+        "rtf": 0.6165665567050852,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Block internet for my son.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 2.006881599998451,
+        "rtf": 0.8275800412364747,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Block internet for my son.",
+        "prompt": "Block internet for my son. Block Alice's internet. Block internet on my mom's tablet.",
+        "seconds": 2.0517686999955913,
+        "rtf": 0.8460901855651923,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0017.wav",
+    "scenario": "unblock_internet",
+    "reference": "unblock internet for my son",
+    "duration_s": 2.56,
+    "decodes": {
+      "none": {
+        "text": "on Block Internet for my son.",
+        "prompt": null,
+        "seconds": 1.6887633000005735,
+        "rtf": 0.659673164062724,
+        "errors": 2,
+        "reference_words": 5,
+        "wer": 0.4
+      },
+      "global": {
+        "text": "Unblock internet for my son.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.5665914999990491,
+        "rtf": 0.6119498046871286,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Unblock internet for my son.",
+        "prompt": "Unblock internet for my son. Unblock John's internet. Unblock internet on my dad's phone.",
+        "seconds": 1.5826680999889504,
+        "rtf": 0.6182297265581838,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0018.wav",
+    "scenario": "block_application",
+    "reference": "block youtube on the tablet",
+    "duration_s": 2.445,
+    "decodes": {
+      "none": {
+        "text": "Block YouTube on the tablet.",
+        "prompt": null,
+        "seconds": 1.441733200001181,
+        "rtf": 0.5896659304708307,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Block YouTube on the tablet.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.3611633999971673,
+        "rtf": 0.5567130470336062,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Block YouTube on the tablet.",
+        "prompt": "Block YouTube for my son. Block TikTok on Alice's phone. Block Netflix on the tablet. This is handled as blocking internet access.",
+        "seconds": 1.2587657999974908,
+        "rtf": 0.5148326380357836,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0019.wav",
+    "scenario": "unblock_application",
+    "reference": "unblock facebook",
+    "duration_s": 1.99,
+    "decodes": {
+      "none": {
+        "text": "on Block Facebook.",
+        "prompt": null,
+        "seconds": 0.9799185000010766,
+        "rtf": 0.4924213567844606,
+        "errors": 2,
+        "reference_words": 2,
+        "wer": 1.0
+      },
+      "global": {
+        "text": "Unblock Facebook.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 0.9889351000019815,
+        "rtf": 0.49695231155878467,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Unblock Facebook.",
+        "prompt": "Unblock YouTube for my son. Unblock Facebook on John's laptop. Unblock Netflix on the smart TV. This is handled as unblocking internet access.",
+        "seconds": 1.0103114999947138,
+        "rtf": 0.5076942211028712,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0020.wav",
+    "scenario": "wifi_device_info",
+    "reference": "show wifi device info",
+    "duration_s": 2.44,
+    "decodes": {
+      "none": {
+        "text": "Show WiFi device info.",
+        "prompt": null,
+        "seconds": 0.9472641999891493,
+        "rtf": 0.38822303278243825,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Show Wi-Fi device info.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.4956077000097139,
+        "rtf": 0.6129539754138171,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "scenario": {
+        "text": "Show Wi-Fi device info.",
+        "prompt": "Show Wi-Fi device info for my son's phone. Show device info for my mom's tablet. Show Wi-Fi device info for Alice.",
+        "seconds": 0.979815900005633,
+        "rtf": 0.4015638934449316,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  }
+]

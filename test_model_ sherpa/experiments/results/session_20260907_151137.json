@@ -1,0 +1,86 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-07 15:13:35",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "VÀ",
+    "pipeline_b": "VÀ",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-07 15:13:36",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "VÀ",
+    "pipeline_b": "VÀ",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 3,
+    "thoi_gian": "2026-09-07 15:13:37",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "VÀ",
+    "pipeline_b": "VÀ",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 4,
+    "thoi_gian": "2026-09-07 15:13:37",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "VÀ",
+    "pipeline_b": "VÀ",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 5,
+    "thoi_gian": "2026-09-07 15:13:37",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "VÀ",
+    "pipeline_b": "VÀ",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 6,
+    "thoi_gian": "2026-09-07 15:13:56",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "TÔI MUỐN",
+    "pipeline_b": "TÔI MUỐN",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 7,
+    "thoi_gian": "2026-09-07 15:13:57",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "TÔI MUỐN",
+    "pipeline_b": "TÔI MUỐN",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  }
+]

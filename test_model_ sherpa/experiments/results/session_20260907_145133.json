@@ -1,0 +1,50 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-07 14:53:12",
+    "nguon_audio": "Mic",
+    "reference": "",
+    "pipeline_a": "KIỂM TRA CHẤT LƯỢNG KẾT NỐI",
+    "pipeline_b": "KIỂM TRA CHẤT LƯỢNG KẾT NỐI",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-07 14:54:32",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "KHÔNG",
+    "pipeline_b": "KHÔNG",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 3,
+    "thoi_gian": "2026-09-07 14:54:38",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "ĐÂY LÀ MỘT",
+    "pipeline_b": "ĐÂY LÀ MỘT",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 4,
+    "thoi_gian": "2026-09-07 14:55:04",
+    "nguon_audio": "ESP32 Mic",
+    "reference": "",
+    "pipeline_a": "CHÀO CÁC BẠN",
+    "pipeline_b": "CHÀO CÁC BẠN",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  }
+]

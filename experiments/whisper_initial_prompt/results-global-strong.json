@@ -1,0 +1,522 @@
+[
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0001.wav",
+    "scenario": "network_status",
+    "reference": "what is my network status",
+    "duration_s": 2.355,
+    "decodes": {
+      "none": {
+        "text": "What is my network status?",
+        "prompt": null,
+        "seconds": 1.4035304000135511,
+        "rtf": 0.5959789384346289,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "What is my network status?",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.8817409000039333,
+        "rtf": 0.7990407218700354,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0002.wav",
+    "scenario": "network_status",
+    "reference": "check network status",
+    "duration_s": 2.095,
+    "decodes": {
+      "none": {
+        "text": "Check network status.",
+        "prompt": null,
+        "seconds": 1.0674751999904402,
+        "rtf": 0.5095347016660812,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Check network status.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.7542154000111623,
+        "rtf": 0.8373343198143972,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0003.wav",
+    "scenario": "router_status",
+    "reference": "how is the router doing",
+    "duration_s": 2.07,
+    "decodes": {
+      "none": {
+        "text": "How is the router doing?",
+        "prompt": null,
+        "seconds": 1.085328400004073,
+        "rtf": 0.5243132367169435,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "How is the router doing?",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.8228096999955596,
+        "rtf": 0.8805843961331207,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0004.wav",
+    "scenario": "router_status",
+    "reference": "show me the router status",
+    "duration_s": 2.355,
+    "decodes": {
+      "none": {
+        "text": "Show me the router status.",
+        "prompt": null,
+        "seconds": 1.1294459000055213,
+        "rtf": 0.4795948619980982,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Show me the router status.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.9017443000047933,
+        "rtf": 0.8075347346092541,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0005.wav",
+    "scenario": "online_devices",
+    "reference": "who is online right now",
+    "duration_s": 2.095,
+    "decodes": {
+      "none": {
+        "text": "who is online right now.",
+        "prompt": null,
+        "seconds": 1.217242200000328,
+        "rtf": 0.5810225298330921,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Who is online right now.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.943962699995609,
+        "rtf": 0.9279058233869254,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0006.wav",
+    "scenario": "online_devices",
+    "reference": "list online devices",
+    "duration_s": 2.235,
+    "decodes": {
+      "none": {
+        "text": "List online devices",
+        "prompt": null,
+        "seconds": 0.9898119999998016,
+        "rtf": 0.4428689038030433,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "List online devices.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.8744234000041615,
+        "rtf": 0.8386681879213251,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0007.wav",
+    "scenario": "gaming_sessions",
+    "reference": "is anyone playing games",
+    "duration_s": 2.35,
+    "decodes": {
+      "none": {
+        "text": "Is anyone playing games?",
+        "prompt": null,
+        "seconds": 1.038769400009187,
+        "rtf": 0.44202953191880295,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Is anyone playing games?",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 1.833068199994159,
+        "rtf": 0.7800290212741101,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0008.wav",
+    "scenario": "gaming_sessions",
+    "reference": "show gaming sessions",
+    "duration_s": 2.155,
+    "decodes": {
+      "none": {
+        "text": "Show gaming sessions.",
+        "prompt": null,
+        "seconds": 1.0203219999966677,
+        "rtf": 0.47346728538128435,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Show gaming sessions.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.0034302999993088,
+        "rtf": 0.929666032482278,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0009.wav",
+    "scenario": "guest_wifi",
+    "reference": "turn on guest wifi",
+    "duration_s": 2.115,
+    "decodes": {
+      "none": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": null,
+        "seconds": 1.3531235000118613,
+        "rtf": 0.6397747044973339,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.278558800011524,
+        "rtf": 1.0773327659628953,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0010.wav",
+    "scenario": "guest_wifi",
+    "reference": "turn off guest network",
+    "duration_s": 2.225,
+    "decodes": {
+      "none": {
+        "text": "Turn off guest network.",
+        "prompt": null,
+        "seconds": 1.1861129000026267,
+        "rtf": 0.5330844494393827,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Turn off guest network.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.2536338999925647,
+        "rtf": 1.012869168535984,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0011.wav",
+    "scenario": "guest_wifi",
+    "reference": "enable guest wifi",
+    "duration_s": 2.07,
+    "decodes": {
+      "none": {
+        "text": "Enable guest Wi-Fi.",
+        "prompt": null,
+        "seconds": 1.2890037000033772,
+        "rtf": 0.6227071014509069,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Enable guest Wi-Fi.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.1514082999929087,
+        "rtf": 1.0393276811559946,
+        "errors": 0,
+        "reference_words": 3,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0012.wav",
+    "scenario": "open_qos",
+    "reference": "open qos",
+    "duration_s": 1.915,
+    "decodes": {
+      "none": {
+        "text": "Open QOS.",
+        "prompt": null,
+        "seconds": 1.1697801999980584,
+        "rtf": 0.6108512793723543,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Open QoS.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.043859800003702,
+        "rtf": 1.0672897127956666,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0013.wav",
+    "scenario": "open_qos",
+    "reference": "what is each device doing",
+    "duration_s": 2.265,
+    "decodes": {
+      "none": {
+        "text": "What is each device doing?",
+        "prompt": null,
+        "seconds": 1.3268012999906205,
+        "rtf": 0.5857842384064549,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "What is each device doing?",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.175048200006131,
+        "rtf": 0.9602861810181593,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0014.wav",
+    "scenario": "bandwidth_limit",
+    "reference": "set bandwidth limit fifty",
+    "duration_s": 2.44,
+    "decodes": {
+      "none": {
+        "text": "Set bandwidth limit 50.",
+        "prompt": null,
+        "seconds": 1.230767699991702,
+        "rtf": 0.504412991799878,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Set bandwidth limit, fifty.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.21448949999467,
+        "rtf": 0.9075776639322418,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0015.wav",
+    "scenario": "bandwidth_limit",
+    "reference": "limit speed to one hundred",
+    "duration_s": 2.33,
+    "decodes": {
+      "none": {
+        "text": "Limit speed to 100.",
+        "prompt": null,
+        "seconds": 1.2175504000042565,
+        "rtf": 0.5225538197443161,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Limit speed to one hundred.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.2293134999927133,
+        "rtf": 0.9567869098681173,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0016.wav",
+    "scenario": "block_internet",
+    "reference": "block internet for my son",
+    "duration_s": 2.425,
+    "decodes": {
+      "none": {
+        "text": "Block Internet for my son.",
+        "prompt": null,
+        "seconds": 1.2902064000081737,
+        "rtf": 0.5320438762920304,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Block internet for my son.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.2453021999972407,
+        "rtf": 0.9258978144318519,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0017.wav",
+    "scenario": "unblock_internet",
+    "reference": "unblock internet for my son",
+    "duration_s": 2.56,
+    "decodes": {
+      "none": {
+        "text": "on Block Internet for my son.",
+        "prompt": null,
+        "seconds": 1.308428999996977,
+        "rtf": 0.5111050781238191,
+        "errors": 2,
+        "reference_words": 5,
+        "wer": 0.4
+      },
+      "global": {
+        "text": "Unblock internet for my son.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.2726013000064995,
+        "rtf": 0.8877348828150389,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0018.wav",
+    "scenario": "block_application",
+    "reference": "block youtube on the tablet",
+    "duration_s": 2.445,
+    "decodes": {
+      "none": {
+        "text": "Block YouTube on the tablet.",
+        "prompt": null,
+        "seconds": 1.3489892999932636,
+        "rtf": 0.5517338650279197,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Block YouTube on the tablet.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.2060804000066128,
+        "rtf": 0.9022823721908437,
+        "errors": 0,
+        "reference_words": 5,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0019.wav",
+    "scenario": "unblock_application",
+    "reference": "unblock facebook",
+    "duration_s": 1.99,
+    "decodes": {
+      "none": {
+        "text": "on Block Facebook.",
+        "prompt": null,
+        "seconds": 1.2036099999968428,
+        "rtf": 0.6048291457270567,
+        "errors": 2,
+        "reference_words": 2,
+        "wer": 1.0
+      },
+      "global": {
+        "text": "Unblock Facebook.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.047688599996036,
+        "rtf": 1.0289892462291639,
+        "errors": 0,
+        "reference_words": 2,
+        "wer": 0.0
+      }
+    }
+  },
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0020.wav",
+    "scenario": "wifi_device_info",
+    "reference": "show wifi device info",
+    "duration_s": 2.44,
+    "decodes": {
+      "none": {
+        "text": "Show Wi-Fi device info.",
+        "prompt": null,
+        "seconds": 1.3477025000029244,
+        "rtf": 0.552337090165133,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      },
+      "global": {
+        "text": "Show Wi-Fi device info.",
+        "prompt": "Home router voice commands. Network status; check the network; network condition; network working. Router status; check the router; router working. Wi-Fi device info; device details; phone, tablet, laptop, smart TV, PlayStation. Online devices; connected devices; who is online. Gaming sessions; playing games; who is gaming. Guest Wi-Fi; guest network; turn on, enable, activate; turn off, disable, deactivate. Open QoS; device activity; gaming or video streaming. Bandwidth limit; speed limit; set the limit to ten, twenty, fifty, or one hundred. Block internet; disable internet; stop internet access; cut off internet. Unblock internet; restore internet access; allow internet again; remove the internet block. Block YouTube, Facebook, TikTok, Netflix, or Instagram. Unblock YouTube, Facebook, TikTok, Netflix, or Instagram. My son, my mom, my dad, Alice, John.",
+        "seconds": 2.287246799998684,
+        "rtf": 0.9373962295076573,
+        "errors": 0,
+        "reference_words": 4,
+        "wer": 0.0
+      }
+    }
+  }
+]

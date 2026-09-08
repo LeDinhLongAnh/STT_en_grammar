@@ -1,0 +1,37 @@
+[
+  {
+    "wav": "C:\\Users\\CONG THANH\\OneDrive - ptit.edu.vn\\VNPT\\01. LCD ESP32S3\\STT_EN_Grammar\\tests\\data\\tts\\tts-0009.wav",
+    "scenario": "guest_wifi",
+    "reference": "turn on guest wifi",
+    "duration_s": 2.115,
+    "decodes": {
+      "none": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": null,
+        "seconds": 1.233214300009422,
+        "rtf": 0.5830800472857787,
+        "errors": 2,
+        "reference_words": 4,
+        "wer": 0.5
+      },
+      "global": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": "A home router voice assistant. Network status, router status, Wi-Fi device info, online devices, gaming sessions, guest Wi-Fi, QoS, bandwidth limit, block internet, and unblock internet. Devices may belong to my son, mom, dad, Alice, or John. Applications include YouTube, Facebook, TikTok, Netflix, and Instagram.",
+        "seconds": 1.2253659999987576,
+        "rtf": 0.5793692671388925,
+        "errors": 2,
+        "reference_words": 4,
+        "wer": 0.5
+      },
+      "scenario": {
+        "text": "Turn on guest Wi-Fi.",
+        "prompt": "Turn on guest Wi-Fi. Turn off guest Wi-Fi. Enable the guest network. Disable the guest network.",
+        "seconds": 0.8976270999992266,
+        "rtf": 0.4244099763589724,
+        "errors": 2,
+        "reference_words": 4,
+        "wer": 0.5
+      }
+    }
+  }
+]

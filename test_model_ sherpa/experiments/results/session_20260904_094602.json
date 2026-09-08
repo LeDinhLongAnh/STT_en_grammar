@@ -1,0 +1,26 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-04 09:46:39",
+    "nguon_audio": "Mic",
+    "reference": "",
+    "pipeline_a": "MỞ TRANG WEB SAU ĐÓ KIỂM TRA XEM NHỮNG AI ĐANG DÙNG WIFI",
+    "pipeline_b": "MỞ TRANG QOS SAU ĐÓ KIỂM TRA XEM NHỮNG AI ĐANG DÙNG Wi-Fi",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-04 09:47:49",
+    "nguon_audio": "Mic",
+    "reference": "",
+    "pipeline_a": "MỞ TRANG WEB SAU ĐÓ KIỂM TRA XEM NHỮNG AI ĐANG DÙNG WIFI",
+    "pipeline_b": "MỞ TRANG QOS SAU ĐÓ KIỂM TRA XEM NHỮNG AI ĐANG DÙNG Wi-Fi",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  }
+]

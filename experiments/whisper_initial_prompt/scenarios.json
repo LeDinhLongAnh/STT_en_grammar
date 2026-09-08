@@ -1,0 +1,212 @@
+{
+  "global_prompt_version": "v4-clean-mbps-EDITED",
+  "global_prompt": "Router assistant transcript. Enable guest Wi-Fi and turn off the guest network. Limit the phone to 50 Mbps and set the laptop bandwidth to 20 Mbps. Optimize gaming for the PC, boost YouTube, and prioritize Netflix for the smart TV. Block TikTok on the tablet and unblock it again. Check the router status, gateway information, and router uptime. Check internet connection quality and open the QoS page. Which devices are playing games. Which clients are connected. Show device info for the tablet. Restore Wi-Fi access. Block internet for the phone. Check the IP and status of the router.Show all online devices.",
+  "slots": {
+    "people": [
+      "my son",
+      "my daughter",
+      "my child",
+      "my mom",
+      "my dad",
+      "Alice",
+      "John"
+    ],
+    "devices": [
+      "phone",
+      "tablet",
+      "laptop",
+      "smart TV",
+      "PC",
+      "PlayStation"
+    ],
+    "applications": [
+      "YouTube",
+      "Facebook",
+      "TikTok",
+      "Netflix",
+      "Instagram",
+      "gaming"
+    ],
+    "bandwidth_values": [
+      "10 Mbps",
+      "20 Mbps",
+      "50 Mbps",
+      "100 Mbps",
+      "ten",
+      "twenty",
+      "fifty",
+      "one hundred"
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "network_status",
+      "number": 1,
+      "name": "Network information",
+      "prompt": "How is the network today? Check the internet connection quality. Is the Wi-Fi stable? What is my network status?",
+      "examples": [
+        "How is the network today?",
+        "Check the internet connection quality.",
+        "Is the Wi-Fi stable?",
+        "What is my network status?",
+        "How is my network doing?",
+        "Can you check my network?",
+        "Tell me the current network condition."
+      ]
+    },
+    {
+      "id": "router_status",
+      "number": 2,
+      "name": "Router information",
+      "prompt": "Check the router status. Show my gateway information. What is the router uptime?",
+      "examples": [
+        "Check the router status.",
+        "Show my gateway information.",
+        "What is the router uptime?",
+        "How is the router doing?",
+        "Is the router working properly?",
+        "Tell me how the router is doing."
+      ]
+    },
+    {
+      "id": "wifi_device_info",
+      "number": 3,
+      "name": "Wi-Fi device details",
+      "prompt": "Show device info for the tablet. Get the connection details for my phone. What are the IP and status of the laptop?",
+      "examples": [
+        "Show device info for the tablet.",
+        "Get the connection details for my phone.",
+        "What are the IP and status of the laptop?",
+        "Show Wi-Fi device info for my son's phone.",
+        "Give me the Wi-Fi details for Alice.",
+        "What device is my son using?"
+      ]
+    },
+    {
+      "id": "online_devices",
+      "number": 4,
+      "name": "Online devices",
+      "prompt": "Show all online devices. Which clients are connected right now? List the devices currently using Wi-Fi.",
+      "examples": [
+        "Show all online devices.",
+        "Which clients are connected right now?",
+        "List the devices currently using Wi-Fi.",
+        "Who is online right now?",
+        "What is connected to my Wi-Fi?",
+        "Show every active device."
+      ]
+    },
+    {
+      "id": "gaming_sessions",
+      "number": 5,
+      "name": "Active sessions",
+      "prompt": "Who is gaming right now? Which devices are playing games? Show the active gaming sessions.",
+      "examples": [
+        "Who is gaming right now?",
+        "Which devices are playing games?",
+        "Show the active gaming sessions.",
+        "Who is gaming, video, or call right now?",
+        "Is anyone playing games?",
+        "Show all active game sessions."
+      ]
+    },
+    {
+      "id": "guest_wifi",
+      "number": 6,
+      "name": "Guest Wi-Fi",
+      "prompt": "Enable guest Wi-Fi. Turn off the guest network. Please turn the guest Wi-Fi on.",
+      "examples": [
+        "Enable guest Wi-Fi.",
+        "Turn off the guest network.",
+        "Please turn the guest Wi-Fi on.",
+        "Disable guest Wi-Fi access.",
+        "Activate guest Wi-Fi.",
+        "Open the guest network."
+      ]
+    },
+    {
+      "id": "open_qos",
+      "number": 7,
+      "name": "Optimize an app",
+      "prompt": "Optimize gaming for the PC. Boost YouTube on my laptop. Prioritize Netflix for the smart TV. Open the QoS page.",
+      "examples": [
+        "Optimize gaming for the PC.",
+        "Boost YouTube on my laptop.",
+        "Prioritize Netflix for the smart TV.",
+        "Open the QoS page.",
+        "Show what each device is doing.",
+        "Which devices are gaming or streaming video?"
+      ]
+    },
+    {
+      "id": "bandwidth_limit",
+      "number": 8,
+      "name": "Bandwidth limit",
+      "prompt": "Limit the phone to 50 Mbps. Set the laptop bandwidth to 20 Mbps. Cap the tablet at 10 Mbps (megabits per second). Set bandwidth to 100 Mbps.",
+      "examples": [
+        "Limit the phone to 50 Mbps.",
+        "Set the laptop bandwidth to 20 Mbps.",
+        "Cap the tablet at 10 megabits per second.",
+        "Cap the tablet at 10 Mbps.",
+        "Limit the speed to 50 Mbps.",
+        "Set my son's phone bandwidth to 20 Mbps.",
+        "Put a bandwidth limit of 50 Mbps on John's laptop.",
+        "Set bandwidth to 100 Mbps."
+      ]
+    },
+    {
+      "id": "block_internet",
+      "number": 9,
+      "name": "Block internet access",
+      "prompt": "Block internet for the tablet. Cut off Wi-Fi for my son's phone. Disable internet access on the guest laptop.",
+      "examples": [
+        "Block internet for the tablet.",
+        "Cut off Wi-Fi for my son's phone.",
+        "Disable internet access on the guest laptop.",
+        "Turn off internet access for John's laptop.",
+        "Cut off the tablet's internet access."
+      ]
+    },
+    {
+      "id": "unblock_internet",
+      "number": 10,
+      "name": "Unblock internet access",
+      "prompt": "Unblock internet for the tablet. Restore Wi-Fi access to my phone. Let the laptop connect to the internet again.",
+      "examples": [
+        "Unblock internet for the tablet.",
+        "Restore Wi-Fi access to my phone.",
+        "Let the laptop connect to the internet again.",
+        "Reconnect my son's phone to the internet.",
+        "Restore internet access for Alice."
+      ]
+    },
+    {
+      "id": "block_application",
+      "number": 11,
+      "name": "Block an app",
+      "canonical_action": "block_internet",
+      "prompt": "Block YouTube for the tablet. Stop TikTok on my child's phone. Prevent gaming on the laptop.",
+      "examples": [
+        "Block YouTube for the tablet.",
+        "Stop TikTok on my child's phone.",
+        "Prevent gaming on the laptop.",
+        "Do not allow YouTube on the smart TV.",
+        "Block Facebook for my mom."
+      ]
+    },
+    {
+      "id": "unblock_application",
+      "number": 12,
+      "name": "Unblock an app",
+      "canonical_action": "unblock_internet",
+      "prompt": "Unblock YouTube for the tablet. Allow TikTok on my phone again. Remove blocking gaming from the laptop.",
+      "examples": [
+        "Unblock YouTube for the tablet.",
+        "Allow TikTok on my phone again.",
+        "Remove blocking gaming from the laptop.",
+        "Turn Netflix back on for the living room TV.",
+        "Let the tablet use YouTube again."
+      ]
+    }
+  ]
+}

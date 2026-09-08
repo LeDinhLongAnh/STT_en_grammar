@@ -1,0 +1,3 @@
+stt,thoi_gian,nguon_audio,reference,pipeline_a,pipeline_b,wer_a,wer_b,cer_a,cer_b
+1,2026-09-04 09:42:22,TTS,"mở màn hình qos, sau đó kiểm tra ai đang xem netflix",MỞ MÀN HÌNH CODE SAU ĐÓ KIỂM TRA AI ĐANG XEM NETFLIX,MỞ MÀN HÌNH CODE SAU ĐÓ KIỂM TRA AI ĐANG XEM NETFLIX,0.0833,0.0833,1.0,1.0
+2,2026-09-04 09:43:01,Mic,,MỞ MÀN HÌNH QUY OS SAU ĐÓ KIỂM TRA XEM AI ĐANG XEM PHIM,MỞ MÀN HÌNH QOS SAU ĐÓ KIỂM TRA XEM AI ĐANG XEM PHIM,,,,

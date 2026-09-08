@@ -1,0 +1,58 @@
+# Build output
+**/build/
+**/bin/
+**/out/
+*.obj
+*.pdb
+*.ilk
+*.exp
+*.exe
+*.o
+*.a
+*.lib
+
+# Large Model weights and download caches (Too large to version)
+**/models/*
+!**/models/.gitkeep
+**/.models/
+*.onnx
+*.pt
+*.pth
+
+# Third party dependencies
+/third_party/*
+!/third_party/.gitkeep
+
+# Audio files & recordings
+**/recordings/
+*.wav
+*.mp3
+/tests/data/clips/*
+!/tests/data/clips/.gitkeep
+/tests/data/tts/
+
+# Python & Virtual Environments
+**/__pycache__/
+*.py[cod]
+**/.venv/
+venv/
+ENV/
+
+# Experiments scratch / large results
+/experiments/whisper_initial_prompt/audio/*
+!/experiments/whisper_initial_prompt/audio/.gitkeep
+
+# Editors / OS
+.vscode/
+.idea/
+*.user
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Test scratch
+*.tmp.txt
+*.tmp.ini
+vcc_test_*.tmp*
+temp_hw.txt
+temp_normalized_hw.txt

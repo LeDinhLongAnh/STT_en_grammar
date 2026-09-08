@@ -1,0 +1,13 @@
+# ===========================================================================
+# Cấu hình quy đổi từ đồng âm / phiên âm về từ chuẩn cho Pipeline B
+# Định dạng mỗi dòng: TỪ_CHUẨN : biến_thể_1, biến_thể_2, biến_thể_3, ...
+# ===========================================================================
+
+Wi-Fi : wifi,oai phai, hoai phai, hoa phai, quai phai, quy phai, vi phi, wai phai, wai fai, wifi, qua phai
+Laptop : láp tóp, láp tốp, lắp tóp, lấp tốp, nháp tóp, láp tót, lab top, lap top
+Game : ghem-minh, ghem minh, gêm-minh, gêm minh, ghem, gêm, gem, rem, đêm
+YouTube : diu túp, dzu túp, du túp, giu túp, diu tu bi, du tu bê, you tube, u túp
+Netflix : nét phíc, nét phờ líc, nét lít, nít líc, nết phích, nét níc, net flix, nết flix
+TikTok : tích tốc, tíc tóc, tiếc tóc, tít tóc, thít thót, tik tok, tic toc
+Internet : in-tơ-nét, in tơ nét, in-tẹt-nét, in tẹt nét, in-tơ-nết, in tơ nết, in-tơ-nẹt, in tơ nẹt, i-nét, i nét
+Mbps : mê-ga-bít, mê ga bít, mờ-bê-pê-ét, mờ bê pê ét, mờ-bê, mờ bê

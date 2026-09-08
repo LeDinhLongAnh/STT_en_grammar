@@ -1,0 +1,26 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-04 09:42:22",
+    "nguon_audio": "TTS",
+    "reference": "mở màn hình qos, sau đó kiểm tra ai đang xem netflix",
+    "pipeline_a": "MỞ MÀN HÌNH CODE SAU ĐÓ KIỂM TRA AI ĐANG XEM NETFLIX",
+    "pipeline_b": "MỞ MÀN HÌNH CODE SAU ĐÓ KIỂM TRA AI ĐANG XEM NETFLIX",
+    "wer_a": 0.0833,
+    "wer_b": 0.0833,
+    "cer_a": 1.0,
+    "cer_b": 1.0
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-04 09:43:01",
+    "nguon_audio": "Mic",
+    "reference": "",
+    "pipeline_a": "MỞ MÀN HÌNH QUY OS SAU ĐÓ KIỂM TRA XEM AI ĐANG XEM PHIM",
+    "pipeline_b": "MỞ MÀN HÌNH QOS SAU ĐÓ KIỂM TRA XEM AI ĐANG XEM PHIM",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  }
+]

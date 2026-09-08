@@ -1,0 +1,19 @@
+# Where to get bpe.model for models whose tarball does not ship one.
+#
+#   <sha1 of the model's tokens.txt>   <url of a matching bpe.model>
+#
+# Keying on the tokens.txt hash is the safe way to do this: a bpe.model is only
+# usable with the exact token inventory it was trained with, and several
+# sherpa-onnx English models share the LibriSpeech BPE-500 vocabulary while only
+# some of the published tarballs actually contain bpe.model.
+#
+# Why we need it at all: sherpa-onnx encodes hotwords with its own
+# sentencepiece encoder (modeling_unit=bpe + bpe_vocab=bpe.vocab). Without it
+# the only available modeling_unit is "cjkchar", which splits English words into
+# single letters -- those never line up with the decoder's subword output, so
+# contextual biasing silently stops working.
+
+# LibriSpeech BPE-500, shared by sherpa-onnx-zipformer{,-small,-large}-en-2023-06-26
+# and sherpa-onnx-streaming-zipformer-en-2023-06-26 (only the streaming tarball
+# ships bpe.model, so we borrow it).
+be341c8ff2025ccaf56a7ec62d7d5b9f06b260da	https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-06-26/resolve/main/bpe.model

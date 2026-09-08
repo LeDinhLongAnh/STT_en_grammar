@@ -1,0 +1,4 @@
+stt,thoi_gian,nguon_audio,reference,pipeline_a,pipeline_b,wer_a,wer_b,cer_a,cer_b
+1,2026-09-04 09:35:13,Mic,,MỞ TRANG WEB VÀ KIỂM TRA TRẠNG THÁI WIFI,MỞ TRANG WEB VÀ KIỂM TRA TRẠNG THÁI Wi-Fi,,,,
+2,2026-09-04 09:35:44,TTS,mở trang qos và kiểm tra trạng thái wifi,MỞ TRANG COST VÀ KIỂM TRA TRẠNG THÁI WIFI,MỞ TRANG COST VÀ KIỂM TRA TRẠNG THÁI Wi-Fi,0.1111,0.2222,1.0312,1.0
+3,2026-09-04 09:37:31,Mic,,KIỂM TRA TRẠNG THÁI WIFI VÀ MỞ TRANG WEB,KIỂM TRA TRẠNG THÁI Wi-Fi VÀ MỞ TRANG QOS,,,,

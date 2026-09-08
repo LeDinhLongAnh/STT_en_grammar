@@ -1,0 +1,38 @@
+[
+  {
+    "stt": 1,
+    "thoi_gian": "2026-09-04 09:35:13",
+    "nguon_audio": "Mic",
+    "reference": "",
+    "pipeline_a": "MỞ TRANG WEB VÀ KIỂM TRA TRẠNG THÁI WIFI",
+    "pipeline_b": "MỞ TRANG WEB VÀ KIỂM TRA TRẠNG THÁI Wi-Fi",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  },
+  {
+    "stt": 2,
+    "thoi_gian": "2026-09-04 09:35:44",
+    "nguon_audio": "TTS",
+    "reference": "mở trang qos và kiểm tra trạng thái wifi",
+    "pipeline_a": "MỞ TRANG COST VÀ KIỂM TRA TRẠNG THÁI WIFI",
+    "pipeline_b": "MỞ TRANG COST VÀ KIỂM TRA TRẠNG THÁI Wi-Fi",
+    "wer_a": 0.1111,
+    "wer_b": 0.2222,
+    "cer_a": 1.0312,
+    "cer_b": 1.0
+  },
+  {
+    "stt": 3,
+    "thoi_gian": "2026-09-04 09:37:31",
+    "nguon_audio": "Mic",
+    "reference": "",
+    "pipeline_a": "KIỂM TRA TRẠNG THÁI WIFI VÀ MỞ TRANG WEB",
+    "pipeline_b": "KIỂM TRA TRẠNG THÁI Wi-Fi VÀ MỞ TRANG QOS",
+    "wer_a": null,
+    "wer_b": null,
+    "cer_a": null,
+    "cer_b": null
+  }
+]
