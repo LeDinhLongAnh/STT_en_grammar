@@ -1,4 +1,0 @@
-# Classic mode only needs PyQt5. The integrated Whisper Initial Prompt tab is
-# installed from experiments/whisper_initial_prompt/requirements.txt and the
-# launcher deliberately uses that Python 3.12 environment.
-PyQt5>=5.15,<6

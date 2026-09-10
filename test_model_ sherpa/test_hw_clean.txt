@@ -1,3 +1,0 @@
-sherpa :6.0
-onnx :6.0
-stt :5.0

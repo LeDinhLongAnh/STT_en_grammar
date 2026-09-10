@@ -1,4 +1,0 @@
-chan doan :3.5
-chua benh
-sherpa onnx :5.0
-zipformer :5.0
