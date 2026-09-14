@@ -48,6 +48,7 @@ if str(_EXP_ROOT) not in sys.path:
     sys.path.insert(0, str(_EXP_ROOT))
 from tts_helpers import KokoroTTSWorker
 from result_logger import log_test_result, generate_markdown_report
+import logit_bias
 
 # Import ESP32MicRecorder tu thu muc scripts cua sherpa app
 _SHERPA_SCRIPTS = Path(__file__).resolve().parents[2] / "test_model_ sherpa" / "scripts"
@@ -64,7 +65,7 @@ except ImportError:
 MODE_TITLES = {
     "none": "1. Không prompt",
     "global": "2. Global prompt",
-    "scenario": "3. Auto Scenario prompt",
+    "global_bias": "3. Global + Logit Bias",
 }
 
 
@@ -155,58 +156,144 @@ class DecodeWorker(QThread):
                     "resolution": resolution,
                 }
 
-            # The selected test scenario must never choose the production prompt.
-            # Route from an unbiased/global transcript, then re-decode with the
-            # automatically selected scenario's vocabulary.
-            candidates = [
-                (mode, results[mode]["resolution"])
-                for mode in ("global", "none")
-                if results[mode]["resolution"].status == "matched"
-            ]
-            if candidates:
-                routing_source, first_resolution = max(
-                    candidates, key=lambda item: item[1].confidence)
-                auto_scenario_id = first_resolution.scenario_id
-                scenario = experiment.scenario_map(self.config)[auto_scenario_id]
-                applied_strength = experiment.adaptive_scenario_strength(
-                    self.prompt_strength, auto_scenario_id,
-                    results[routing_source]["text"])
-                scenario_prompt = experiment.strengthen_prompt(
-                    str(scenario["prompt"]), applied_strength)
-                self.progress.emit(
-                    f"Tự chọn {scenario['name']} từ {routing_source}; "
-                    f"đang decode lại với prompt {applied_strength}×...")
-            else:
-                routing_source = "unresolved"
-                auto_scenario_id = None
-                applied_strength = 1
-                # A safe fallback: do not inject an arbitrary scenario.
-                scenario_prompt = self.prompts["global"]
-                self.progress.emit("Chưa đủ ý để chọn scenario; decode lại bằng Global prompt")
+            # === MODE 3: Global + Logit Bias (Single-pass) ===
+            import logit_bias
+            import ctypes
+            from ctypes import wintypes
+            class PROCESS_MEMORY_COUNTERS_EX(ctypes.Structure):
+                _fields_ = [("cb", wintypes.DWORD), ("PageFaultCount", wintypes.DWORD), ("PeakWorkingSetSize", ctypes.c_size_t), ("WorkingSetSize", ctypes.c_size_t), ("QuotaPeakPagedPoolUsage", ctypes.c_size_t), ("QuotaPagedPoolUsage", ctypes.c_size_t), ("QuotaPeakNonPagedPoolUsage", ctypes.c_size_t), ("QuotaNonPagedPoolUsage", ctypes.c_size_t), ("PagefileUsage", ctypes.c_size_t), ("PeakPagefileUsage", ctypes.c_size_t), ("PrivateUsage", ctypes.c_size_t)]
+            
+            def get_mem_mb() -> float:
+                process = ctypes.windll.kernel32.GetCurrentProcess()
+                counters = PROCESS_MEMORY_COUNTERS_EX()
+                counters.cb = ctypes.sizeof(PROCESS_MEMORY_COUNTERS_EX)
+                ctypes.windll.psapi.GetProcessMemoryInfo(process, ctypes.byref(counters), counters.cb)
+                return counters.PrivateUsage / (1024 * 1024)
 
-            self.prompts["scenario"] = scenario_prompt
-            text, elapsed = experiment.transcribe(
-                self.cache.model, audio, scenario_prompt)
+            self.progress.emit(f"Đang decode: {MODE_TITLES['global_bias']}...")
+            
+            # Đo RAM của Global prompt trước để làm mốc cho Bias
+            results["global"]["ram_cost_mb"] = 0.0 # Baseline cho global là 0 vì lúc nãy đã chạy
+            
+            tokenizer = whisper.tokenizer.get_tokenizer(
+                multilingual=False, language="en", task="transcribe")
+            bias_cfg = logit_bias.load_logit_bias_config()
+            bias_filter = logit_bias.build_bias_filter(bias_cfg, tokenizer)
+            
+            mem_before = get_mem_mb()
+            text, elapsed = logit_bias.transcribe_with_bias(
+                self.cache.model, audio, self.prompts["global"], bias_filter)
+            mem_after = get_mem_mb()
+            ram_cost_mb = mem_after - mem_before
+            
             resolution = experiment.resolve_scenario(text, self.config)
             errors, words = experiment.edit_counts(self.reference, text) \
                 if self.reference.strip() else (0, 0)
-            results["scenario"] = {
+            
+            results["global_bias"] = {
                 "text": text,
                 "seconds": elapsed,
                 "rtf": elapsed / duration if duration else 0.0,
                 "errors": errors,
                 "words": words,
                 "wer": errors / words if words else None,
-                "prompt": scenario_prompt,
+                "prompt": self.prompts["global"],
                 "resolution": resolution,
+                "ram_cost_mb": ram_cost_mb
             }
-            results["auto_scenario_id"] = auto_scenario_id
-            results["routing_source"] = routing_source
-            results["applied_strength"] = applied_strength
+            results["auto_scenario_id"] = None
+            results["routing_source"] = "global_bias"
+            results["applied_strength"] = 1
             self.completed.emit(results)
         except Exception as exc:  # GUI boundary: show the complete cause to the user.
             traceback.print_exc()
             self.failed.emit(str(exc))
+
+
+class BatchBenchmarkWorker(QThread):
+    progress = pyqtSignal(int, int, str)
+    finished = pyqtSignal(int)
+    failed = pyqtSignal(str)
+
+    def __init__(self, cache: ModelCache, items: list[dict], model_name: str, config: dict, parent=None):
+        super().__init__(parent)
+        self.cache = cache
+        self.items = items
+        self.model_name = model_name
+        self.config = config
+
+    def run(self):
+        try:
+            if self.cache.model is None or getattr(self.cache, 'model_name', None) != self.model_name:
+                self.progress.emit(0, len(self.items), f"Đang nạp Whisper {self.model_name}...")
+                self.cache.model = whisper.load_model(
+                    self.model_name, device="cpu", download_root=str(experiment.ROOT / ".models"))
+                self.cache.model_name = self.model_name
+
+            global_prompt = str(self.config.get("global_prompt", ""))
+            tokenizer = whisper.tokenizer.get_tokenizer(multilingual=False, language="en", task="transcribe")
+            bias_cfg = logit_bias.load_logit_bias_config()
+            bias_filter = logit_bias.build_bias_filter(bias_cfg, tokenizer)
+
+            workspace_root = Path(__file__).resolve().parents[2]
+            csv_path = experiment.ROOT / "test_history.csv"
+
+            total = len(self.items)
+            for idx, item in enumerate(self.items, 1):
+                sample_id = item.get("id", f"sample_{idx:03d}")
+                rel_audio = item.get("audio_file", f"audio/{sample_id}.wav")
+                audio_path = Path(rel_audio) if Path(rel_audio).is_absolute() else (workspace_root / "datatest" / rel_audio)
+                gt = str(item.get("ground_truth", "")).strip()
+
+                if not audio_path.is_file():
+                    continue
+
+                self.progress.emit(idx, total, f"[{idx}/{total}] {sample_id} ({gt[:25]}...)")
+                audio, duration = experiment.read_pcm16_mono_16k(audio_path)
+
+                # 1. Baseline
+                text_none, sec_none = experiment.transcribe(self.cache.model, audio, None)
+                err_none, words_none = experiment.edit_counts(gt, text_none) if gt else (0, 0)
+                wer_none = err_none / words_none if words_none else 0.0
+
+                # 2. Global Prompt
+                text_glob, sec_glob = experiment.transcribe(self.cache.model, audio, global_prompt)
+                err_glob, words_glob = experiment.edit_counts(gt, text_glob) if gt else (0, 0)
+                wer_glob = err_glob / words_glob if words_glob else 0.0
+
+                # 3. Global Prompt + Logit Bias
+                text_bias, sec_bias = logit_bias.transcribe_with_bias(self.cache.model, audio, global_prompt, bias_filter)
+                err_bias, words_bias = experiment.edit_counts(gt, text_bias) if gt else (0, 0)
+                wer_bias = err_bias / words_bias if words_bias else 0.0
+
+                verdict = "TỐT HƠN" if err_bias < err_none else "XẤU HƠN" if err_bias > err_none else "KHÔNG ĐỔI"
+
+                row = {
+                    "Timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+                    "Model": f"whisper-{self.model_name}",
+                    "Source_Type": "DATASET_BATCH",
+                    "Scenario": item.get("accent", "vietnamese"),
+                    "Reference": gt,
+                    "Baseline_Text": text_none,
+                    "Baseline_WER": f"{wer_none * 100:.1f}%",
+                    "Global_Text": text_glob,
+                    "Global_WER": f"{wer_glob * 100:.1f}%",
+                    "Global_RAM_MB": "0.0",
+                    "GlobalBias_Text": text_bias,
+                    "GlobalBias_WER": f"{wer_bias * 100:.1f}%",
+                    "GlobalBias_RAM_MB": "0.0",
+                    "Scenario_Text": text_bias,
+                    "Scenario_WER": f"{wer_bias * 100:.1f}%",
+                    "Prompt_Verdict": verdict,
+                    "Audio_Duration_s": f"{duration:.2f}",
+                    "Saved_Audio_Path": str(audio_path),
+                }
+                log_test_result(csv_path, row)
+
+            self.finished.emit(total)
+        except Exception as e:
+            traceback.print_exc()
+            self.failed.emit(str(e))
 
 
 class AudioRecorder:
@@ -379,6 +466,9 @@ class WhisperPromptDashboard(QMainWindow):
             ESP32MicRecorder(port="COM16", baudrate=2000000) if _ESP32_AVAILABLE else None
         )
         self._esp32_recording: bool = False
+        self.dataset_items: list[dict[str, Any]] = []
+        self.batch_worker: BatchBenchmarkWorker | None = None
+        self._last_dataset_mtime: float = 0.0
 
         self.setWindowTitle("Whisper — Initial Prompt Lab")
         self.resize(1320, 860)
@@ -390,6 +480,10 @@ class WhisperPromptDashboard(QMainWindow):
         self.meter_timer = QTimer(self)
         self.meter_timer.timeout.connect(self._update_meter)
         self.meter_timer.start(50)
+
+        self.ds_watcher_timer = QTimer(self)
+        self.ds_watcher_timer.timeout.connect(self._check_dataset_updates)
+        self.ds_watcher_timer.start(2000)
 
     def _load_samples(self) -> dict[str, tuple[Path, str]]:
         rows = experiment.read_manifest(
@@ -512,14 +606,49 @@ class WhisperPromptDashboard(QMainWindow):
         esp32_row.addWidget(self.esp32_status_label, 1)
         grid.addLayout(esp32_row, 5, 0, 1, 4)
 
-        grid.addWidget(QLabel("Reference"), 6, 0)
-        grid.addWidget(self.reference_edit, 6, 1, 1, 3)
-        grid.addWidget(QLabel("Audio"), 7, 0)
-        grid.addWidget(self.input_label, 7, 1, 1, 3)
+        # --- Dataset quick selector row ---
+        grid.addWidget(QLabel("Dataset"), 6, 0)
+        ds_row = QHBoxLayout()
+        self.prev_ds_btn = QPushButton("◀ Trước")
+        self.prev_ds_btn.setFixedWidth(75)
+        self.prev_ds_btn.setStyleSheet("font-weight:600;")
+        self.prev_ds_btn.clicked.connect(self._prev_dataset_sample)
+        ds_row.addWidget(self.prev_ds_btn)
+
+        self.dataset_combo = QComboBox()
+        self.dataset_combo.currentIndexChanged.connect(self._dataset_sample_selected)
+        ds_row.addWidget(self.dataset_combo, 1)
+
+        self.next_ds_btn = QPushButton("Tiếp ▶")
+        self.next_ds_btn.setFixedWidth(75)
+        self.next_ds_btn.setStyleSheet("font-weight:600;")
+        self.next_ds_btn.clicked.connect(self._next_dataset_sample)
+        ds_row.addWidget(self.next_ds_btn)
+
+        self.refresh_ds_btn = QPushButton("🔄")
+        self.refresh_ds_btn.setFixedWidth(36)
+        self.refresh_ds_btn.setToolTip("Làm mới danh sách Dataset (nếu vừa ghi âm thêm câu mới)")
+        self.refresh_ds_btn.clicked.connect(lambda: self._load_dataset_catalog(preserve_selection=False))
+        ds_row.addWidget(self.refresh_ds_btn)
+
+        self.batch_ds_btn = QPushButton("⚡ Chạy toàn bộ Dataset")
+        self.batch_ds_btn.setStyleSheet(
+            "QPushButton { background:#7c3aed; color:white; font-weight:700; "
+            "border-radius:4px; padding:4px 10px; } "
+            "QPushButton:hover { background:#6d28d9; } "
+            "QPushButton:disabled { background:#94a3b8; }")
+        self.batch_ds_btn.clicked.connect(self._run_batch_benchmark)
+        ds_row.addWidget(self.batch_ds_btn)
+        grid.addLayout(ds_row, 6, 1, 1, 3)
+
+        grid.addWidget(QLabel("Reference"), 7, 0)
+        grid.addWidget(self.reference_edit, 7, 1, 1, 3)
+        grid.addWidget(QLabel("Audio"), 8, 0)
+        grid.addWidget(self.input_label, 8, 1, 1, 3)
         meter = QVBoxLayout()
         meter.addWidget(self.waveform)
         meter.addWidget(self.meter_label)
-        grid.addLayout(meter, 8, 0, 1, 4)
+        grid.addLayout(meter, 9, 0, 1, 4)
 
         # Them nut Thu ESP32 vao hang button
         self.esp32_record_btn = QPushButton("🎙 Thu ESP32")
@@ -534,13 +663,13 @@ class WhisperPromptDashboard(QMainWindow):
                        self.esp32_record_btn,
                        self.play_button, self.run_button, self.export_button):
             buttons.addWidget(button)
-        grid.addLayout(buttons, 9, 0, 1, 4)
+        grid.addLayout(buttons, 10, 0, 1, 4)
         outer.addWidget(controls)
 
         splitter = QSplitter(Qt.Vertical)
         results_widget = QWidget()
         results_layout = QHBoxLayout(results_widget)
-        self.cards = {mode: ResultCard(mode) for mode in ("none", "global", "scenario")}
+        self.cards = {mode: ResultCard(mode) for mode in ("none", "global", "global_bias")}
         for card in self.cards.values():
             results_layout.addWidget(card)
         splitter.addWidget(results_widget)
@@ -576,6 +705,127 @@ class WhisperPromptDashboard(QMainWindow):
         self.setCentralWidget(central)
         self.setStatusBar(QStatusBar())
         self.statusBar().showMessage("Chọn kịch bản và dùng TTS mẫu hoặc thu WAV mới")
+        self._load_dataset_catalog()
+
+    def _load_dataset_catalog(self, preserve_selection: bool = True) -> None:
+        """Load danh sach cac mau tu datatest/dataset.json vao combobox."""
+        workspace_root = Path(__file__).resolve().parents[2]
+        ds_path = workspace_root / "datatest" / "dataset.json"
+        if not ds_path.is_file():
+            return
+
+        try:
+            self._last_dataset_mtime = ds_path.stat().st_mtime
+        except Exception:
+            pass
+
+        current_idx = self.dataset_combo.currentIndex() if preserve_selection else -1
+
+        self.dataset_items = []
+        try:
+            with open(ds_path, "r", encoding="utf-8") as f:
+                self.dataset_items = json.load(f)
+        except Exception:
+            return
+
+        self.dataset_combo.blockSignals(True)
+        self.dataset_combo.clear()
+        for idx, item in enumerate(self.dataset_items):
+            sid = item.get("id", f"sample_{idx+1:03d}")
+            gt = item.get("ground_truth", "")
+            gt_display = (gt[:38] + "..") if len(gt) > 40 else gt
+            dur = item.get("duration_s", 0)
+            self.dataset_combo.addItem(f"[{idx+1:02d}/{len(self.dataset_items)}] {sid} ({dur}s): {gt_display}", idx)
+
+        if preserve_selection and 0 <= current_idx < self.dataset_combo.count():
+            self.dataset_combo.setCurrentIndex(current_idx)
+        elif self.dataset_combo.count() > 0:
+            self.dataset_combo.setCurrentIndex(0)
+        self.dataset_combo.blockSignals(False)
+
+    def _check_dataset_updates(self) -> None:
+        """Tu dong kiem tra va nap them mau moi neu vua thu am xong o recording_studio.py."""
+        workspace_root = Path(__file__).resolve().parents[2]
+        ds_path = workspace_root / "datatest" / "dataset.json"
+        if ds_path.is_file():
+            try:
+                mtime = ds_path.stat().st_mtime
+                if mtime != getattr(self, "_last_dataset_mtime", 0.0):
+                    old_count = len(self.dataset_items)
+                    self._load_dataset_catalog(preserve_selection=True)
+                    new_count = len(self.dataset_items)
+                    if new_count > old_count:
+                        self.statusBar().showMessage(
+                            f"🔄 Đã phát hiện {new_count - old_count} file ghi âm mới! Tổng cộng: {new_count} câu trong Dataset.", 6000)
+            except Exception:
+                pass
+
+    def _dataset_sample_selected(self, index: int) -> None:
+        if index < 0 or index >= len(self.dataset_items):
+            return
+        item = self.dataset_items[index]
+        rel_audio = item.get("audio_file", f"audio/{item.get('id', '')}.wav")
+        workspace_root = Path(__file__).resolve().parents[2]
+        wav_path = Path(rel_audio) if Path(rel_audio).is_absolute() else (workspace_root / "datatest" / rel_audio)
+        if wav_path.is_file():
+            self._set_wav(wav_path)
+            gt = item.get("ground_truth", "")
+            if gt:
+                self.reference_edit.setText(gt)
+
+    def _prev_dataset_sample(self) -> None:
+        idx = self.dataset_combo.currentIndex()
+        if idx > 0:
+            self.dataset_combo.setCurrentIndex(idx - 1)
+
+    def _next_dataset_sample(self) -> None:
+        idx = self.dataset_combo.currentIndex()
+        if idx < self.dataset_combo.count() - 1:
+            self.dataset_combo.setCurrentIndex(idx + 1)
+
+    def _run_batch_benchmark(self) -> None:
+        if not self.dataset_items:
+            QMessageBox.warning(self, "Không có dataset", "Không tìm thấy mẫu nào trong datatest/dataset.json")
+            return
+        
+        reply = QMessageBox.question(
+            self, "Chạy Batch Benchmark",
+            f"Bạn có muốn tự động chạy benchmark tất cả {len(self.dataset_items)} câu trong dataset qua 3 chế độ không?\n\n"
+            "Quá trình chạy sẽ tự động cập nhật kết quả và xuất báo cáo sau khi xong.",
+            QMessageBox.Yes | QMessageBox.No
+        )
+        if reply != QMessageBox.Yes:
+            return
+
+        self._set_busy(True)
+        self.batch_ds_btn.setEnabled(False)
+        self.batch_ds_btn.setText("⏳ Đang chạy...")
+
+        self.batch_worker = BatchBenchmarkWorker(
+            self.cache, self.dataset_items, self.model_combo.currentText(), self.config, self)
+        self.batch_worker.progress.connect(self._on_batch_progress)
+        self.batch_worker.finished.connect(self._on_batch_finished)
+        self.batch_worker.failed.connect(self._on_batch_failed)
+        self.batch_worker.start()
+
+    def _on_batch_progress(self, current: int, total: int, msg: str) -> None:
+        self.statusBar().showMessage(f"⚡ Batch Benchmark: {msg}")
+
+    def _on_batch_finished(self, total: int) -> None:
+        self._set_busy(False)
+        self.batch_ds_btn.setEnabled(True)
+        self.batch_ds_btn.setText("⚡ Chạy toàn bộ Dataset")
+        self.statusBar().showMessage(f"✅ Đã hoàn thành benchmark {total} câu!", 8000)
+        self.batch_worker = None
+        self._export_report()
+
+    def _on_batch_failed(self, err: str) -> None:
+        self._set_busy(False)
+        self.batch_ds_btn.setEnabled(True)
+        self.batch_ds_btn.setText("⚡ Chạy toàn bộ Dataset")
+        QMessageBox.critical(self, "Lỗi Batch Benchmark", err)
+        self.statusBar().showMessage(f"Lỗi: {err}")
+        self.batch_worker = None
 
     def _update_global_prompt_budget(self) -> None:
         tokenizer = whisper.tokenizer.get_tokenizer(
@@ -748,18 +998,80 @@ class WhisperPromptDashboard(QMainWindow):
             else:
                 self.statusBar().showMessage(f"Đã chọn {self.wav_path.name}")
 
+    def _handle_multiple_wavs(self, paths: list[Path]) -> None:
+        """Xu ly khi nguoi dung chon hoac keo tha mot hoac nhieu file WAV."""
+        if not paths:
+            return
+
+        # Sap xep theo ten file tu nhien (sample_001, sample_002...)
+        try:
+            import re
+            def natural_key(p: Path):
+                return [int(text) if text.isdigit() else text.lower() for text in re.split(r'(\d+)', p.name)]
+            paths = sorted(paths, key=natural_key)
+        except Exception:
+            paths = sorted(paths)
+
+        self._last_wav_dir = paths[0].parent
+
+        if len(paths) == 1:
+            self._set_wav(paths[0])
+            return
+
+        # Neu chon nhieu file: nap vao dataset_items va combo
+        selected_items = []
+        for p in paths:
+            gt = self._lookup_ground_truth(p) or ""
+            selected_items.append({
+                "id": p.stem,
+                "audio_file": str(p),
+                "ground_truth": gt,
+                "duration_s": 0.0,
+                "accent": "vietnamese",
+            })
+
+        self.dataset_items = selected_items
+        self.dataset_combo.blockSignals(True)
+        self.dataset_combo.clear()
+        for idx, item in enumerate(self.dataset_items):
+            sid = item["id"]
+            gt = item["ground_truth"]
+            gt_disp = (gt[:35] + "..") if len(gt) > 37 else gt
+            label = f"[{idx+1:02d}/{len(paths)}] {sid}: {gt_disp}" if gt_disp else f"[{idx+1:02d}/{len(paths)}] {sid}"
+            self.dataset_combo.addItem(label, idx)
+        self.dataset_combo.blockSignals(False)
+
+        # Chon ngay file dau tien
+        self._set_wav(paths[0])
+        if selected_items[0]["ground_truth"]:
+            self.reference_edit.setText(selected_items[0]["ground_truth"])
+
+        self.statusBar().showMessage(
+            f"✅ Đã nạp {len(paths)} file WAV vào danh sách. Bấm 'Tiếp ▶' để duyệt hoặc '⚡ Chạy toàn bộ Dataset' để benchmark.", 8000)
+
+        # Hoi nguoi dung co muon chay tu dong luon khong
+        reply = QMessageBox.question(
+            self, "Đã chọn nhiều file WAV",
+            f"Bạn đã chọn {len(paths)} file WAV.\n\n"
+            f"Bạn có muốn TỰ ĐỘNG CHẠY SO SÁNH 3 MODE cho toàn bộ {len(paths)} file này ngay bây giờ không?\n\n"
+            "• Chọn YES: Hệ thống tự động chạy hết từ đầu đến cuối và xuất báo cáo.\n"
+            "• Chọn NO: Giữ danh sách, dùng nút '◀ Trước' / 'Tiếp ▶' để duyệt và test từng file.",
+            QMessageBox.Yes | QMessageBox.No
+        )
+        if reply == QMessageBox.Yes:
+            self._run_batch_benchmark()
+
     def _choose_wav(self) -> None:
         workspace_root = Path(__file__).resolve().parents[2]
         default_dir = workspace_root / "datatest" / "audio"
         if not default_dir.exists():
             default_dir = experiment.ROOT
         init_dir = str(getattr(self, "_last_wav_dir", default_dir))
-        name, _ = QFileDialog.getOpenFileName(
-            self, "Chọn WAV 16 kHz", init_dir, "WAV audio (*.wav)")
-        if name:
-            p = Path(name)
-            self._last_wav_dir = p.parent
-            self._set_wav(p)
+        names, _ = QFileDialog.getOpenFileNames(
+            self, "Chọn một hoặc nhiều file WAV (Ctrl+A để chọn tất cả)", 
+            init_dir, "WAV audio (*.wav)")
+        if names:
+            self._handle_multiple_wavs([Path(n) for n in names])
 
     def _generate_tts_kokoro(self) -> None:
         text = self.reference_edit.text().strip()
@@ -836,6 +1148,24 @@ class WhisperPromptDashboard(QMainWindow):
         open_folder_btn.setStyleSheet("font-weight:600; padding:6px 12px;")
         open_folder_btn.clicked.connect(lambda: os.startfile(str(experiment.ROOT)))
         btn_box.addWidget(open_folder_btn)
+        
+        clear_btn = QPushButton("🗑 Xóa lịch sử")
+        clear_btn.setStyleSheet("font-weight:600; padding:6px 12px; color:#dc2626;")
+        def _clear_history() -> None:
+            ans = QMessageBox.question(dlg, "Xác nhận", "Xóa toàn bộ file test_history.csv và báo cáo MD?", QMessageBox.Yes | QMessageBox.No)
+            if ans == QMessageBox.Yes:
+                try:
+                    if csv_path.exists():
+                        csv_path.unlink()
+                    if md_file.exists():
+                        md_file.unlink()
+                    tb.setPlainText("Lịch sử đã trống.")
+                    QMessageBox.information(dlg, "Đã xóa", "Đã xóa lịch sử thành công.")
+                except Exception as exc:
+                    QMessageBox.critical(dlg, "Lỗi xóa file", str(exc))
+        clear_btn.clicked.connect(_clear_history)
+        btn_box.addWidget(clear_btn)
+
         btn_box.addStretch(1)
         close_btn = QPushButton("Đóng")
         close_btn.clicked.connect(dlg.accept)
@@ -1012,8 +1342,8 @@ class WhisperPromptDashboard(QMainWindow):
             return
         self._set_busy(True)
         strength = int(self.strength_combo.currentData())
-        self.cards["scenario"].setTitle(
-            f"3. Auto Scenario prompt ({strength}×)")
+        self.cards["global_bias"].setTitle(
+            f"3. Global + Logit Bias")
         selected_id = self.scenario_combo.currentData()
         if selected_id:
             self.scenarios[selected_id]["prompt"] = self.scenario_prompt.toPlainText().strip()
@@ -1148,15 +1478,11 @@ class WhisperPromptDashboard(QMainWindow):
         self._set_busy(False)
         for mode, card in self.cards.items():
             card.set_result(results[mode])
-        auto_id = results.get("auto_scenario_id")
-        if auto_id:
-            auto_name = self.scenarios[auto_id]["name"]
-            self.cards["scenario"].setTitle(
-                f"3. Auto Scenario: {auto_name} ({results['applied_strength']}×)")
-        else:
-            self.cards["scenario"].setTitle("3. Auto Scenario: chưa đủ ý")
+        ram_cost = results["global_bias"].get("ram_cost_mb", 0.0)
+        self.cards["global_bias"].setTitle(f"3. Global + Logit Bias (Peak RAM diff: {ram_cost:+.1f} MB)")
+        
         base = results["none"]["errors"]
-        scenario = results["scenario"]["errors"]
+        scenario = results["global_bias"]["errors"]
         verdict = "TỐT HƠN" if scenario < base else "XẤU HƠN" if scenario > base else "KHÔNG ĐỔI"
 
         # Log test result automatically to CSV
@@ -1170,8 +1496,12 @@ class WhisperPromptDashboard(QMainWindow):
             "Baseline_WER": f"{results['none']['wer']*100:.1f}%" if results['none']['wer'] is not None else "0.0%",
             "Global_Text": results["global"]["text"],
             "Global_WER": f"{results['global']['wer']*100:.1f}%" if results['global']['wer'] is not None else "0.0%",
-            "Scenario_Text": results["scenario"]["text"],
-            "Scenario_WER": f"{results['scenario']['wer']*100:.1f}%" if results['scenario']['wer'] is not None else "0.0%",
+            "Global_RAM_MB": "0.0",
+            "GlobalBias_Text": results["global_bias"]["text"],
+            "GlobalBias_WER": f"{results['global_bias']['wer']*100:.1f}%" if results['global_bias']['wer'] is not None else "0.0%",
+            "GlobalBias_RAM_MB": f"{ram_cost:+.1f}",
+            "Scenario_Text": results["global_bias"]["text"],
+            "Scenario_WER": f"{results['global_bias']['wer']*100:.1f}%" if results['global_bias']['wer'] is not None else "0.0%",
             "Prompt_Verdict": verdict,
             "Audio_Duration_s": f"{results['duration']:.2f}",
             "Saved_Audio_Path": getattr(self, "saved_audio_path", ""),
@@ -1196,16 +1526,21 @@ class WhisperPromptDashboard(QMainWindow):
         self.worker = None
 
     def dragEnterEvent(self, event: QDragEnterEvent) -> None:  # noqa: N802
-        if any(url.toLocalFile().lower().endswith(".wav") for url in event.mimeData().urls()):
+        if any(url.toLocalFile().lower().endswith(".wav") or Path(url.toLocalFile()).is_dir()
+               for url in event.mimeData().urls()):
             event.acceptProposedAction()
 
     def dropEvent(self, event: QDropEvent) -> None:  # noqa: N802
+        wav_paths: list[Path] = []
         for url in event.mimeData().urls():
             path = Path(url.toLocalFile())
-            if path.suffix.lower() == ".wav":
-                self._set_wav(path)
-                event.acceptProposedAction()
-                break
+            if path.is_dir():
+                wav_paths.extend(sorted(path.glob("*.wav")))
+            elif path.suffix.lower() == ".wav":
+                wav_paths.append(path)
+        if wav_paths:
+            event.acceptProposedAction()
+            self._handle_multiple_wavs(wav_paths)
 
     def closeEvent(self, event) -> None:  # noqa: N802
         self.shutdown()

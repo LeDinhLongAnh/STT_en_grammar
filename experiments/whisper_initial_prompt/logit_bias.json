@@ -1,0 +1,536 @@
+{
+  "_comment": "Logit Bias config cho Whisper router domain (ti\u1ebfng Anh ph\u00e1t \u00e2m b\u1edfi ng\u01b0\u1eddi Vi\u1ec7t).",
+  "_comment2": "Token IDs \u0111\u01b0\u1ee3c x\u00e1c minh b\u1eb1ng tokenizer whisper/base.en. Thay \u0111\u1ed5i bias \u1edf \u0111\u00e2y r\u1ed3i restart dashboard.",
+  "_comment3": "bias_mode: 'first_token_only' (boost token \u0111\u1ea7u c\u1ee7a m\u1ed7i t\u1eeb) ho\u1eb7c 'all_tokens' (boost t\u1ea5t c\u1ea3).",
+  "enabled": true,
+  "bias_mode": "first_token_only",
+  "global": {
+    "router": {
+      "bias": 2.5,
+      "tokens": [
+        20264
+      ],
+      "_note": "route\u2192router"
+    },
+    "device": {
+      "bias": 2.5,
+      "tokens": [
+        3335
+      ],
+      "_note": "divine\u2192device"
+    },
+    "Wi-Fi": {
+      "bias": 1.8,
+      "tokens": [
+        11759,
+        12,
+        10547
+      ],
+      "_note": "wai/way\u2192Wi-Fi"
+    },
+    "gateway": {
+      "bias": 2.0,
+      "tokens": [
+        24308
+      ],
+      "_note": "good-good\u2192gateway"
+    },
+    "tablet": {
+      "bias": 2.0,
+      "tokens": [
+        14147
+      ],
+      "_note": "top left\u2192tablet"
+    },
+    "status": {
+      "bias": 2.0,
+      "tokens": [
+        3722
+      ],
+      "_note": "data\u2192status"
+    },
+    "lights": {
+      "bias": 2.0,
+      "tokens": [
+        7588
+      ],
+      "_note": "line\u2192lights"
+    },
+    "online": {
+      "bias": 2.0,
+      "tokens": [
+        2691
+      ],
+      "_note": "onlari\u2192online"
+    },
+    "internet": {
+      "bias": 2.0,
+      "tokens": [
+        5230
+      ],
+      "_note": "ethernet\u2192internet"
+    },
+    "guest": {
+      "bias": 2.0,
+      "tokens": [
+        8319
+      ],
+      "_note": "cast\u2192guest"
+    },
+    "gaming": {
+      "bias": 2.0,
+      "tokens": [
+        7776
+      ],
+      "_note": ""
+    },
+    "Mbps": {
+      "bias": 2.0,
+      "tokens": [
+        41022
+      ],
+      "_note": "mb per second\u2192Mbps"
+    },
+    "phone": {
+      "bias": 1.5,
+      "tokens": [
+        3072
+      ],
+      "_note": ""
+    },
+    "tablet": {
+      "bias": 1.5,
+      "tokens": [
+        14147
+      ],
+      "_note": ""
+    },
+    "laptop": {
+      "bias": 1.5,
+      "tokens": [
+        13224
+      ],
+      "_note": ""
+    },
+    "PC": {
+      "bias": 1.5,
+      "tokens": [
+        4217
+      ],
+      "_note": "B.C./bc\u2192PC"
+    },
+    "priority": {
+      "bias": 1.5,
+      "tokens": [
+        8475
+      ],
+      "_note": "Powerity\u2192Priority"
+    },
+    "prioritize": {
+      "bias": 1.5,
+      "tokens": [
+        32980
+      ],
+      "_note": ""
+    },
+    "optimize": {
+      "bias": 1.5,
+      "tokens": [
+        27183
+      ],
+      "_note": "Optimized\u2192Optimize"
+    },
+    "which": {
+      "bias": 3.0,
+      "tokens": [
+        13828,
+        9022,
+        543,
+        4758
+      ],
+      "_note": "bao g\u1ed3m Which vi\u1ebft hoa (13828, 9022) v\u00ec n\u00f3 \u0111\u1ee9ng \u0111\u1ea7u c\u00e2u"
+    },
+    "_removed_all": {
+      "_note": "REMOVED v6: all/477 \u2014 t\u1eeb t\u1ea7n su\u1ea5t cao, kh\u00f4ng \u0111\u1eb7c th\u00f9 router, r\u1ee7i ro khi m\u1edf r\u1ed9ng domain"
+    },
+    "_removed_of": {
+      "_note": "REMOVED v6: of/286  \u2014 t\u1eeb t\u1ea7n su\u1ea5t cao, kh\u00f4ng \u0111\u1eb7c th\u00f9 router"
+    },
+    "_removed_off": {
+      "_note": "REMOVED v6: off/572 \u2014 t\u1eeb t\u1ea7n su\u1ea5t cao, kh\u00f4ng \u0111\u1eb7c th\u00f9 router; turn off v\u1eabn \u0111\u01b0\u1ee3c phrase_aware cover"
+    },
+    "YouTube": {
+      "bias": 1.5,
+      "tokens": [
+        7444
+      ],
+      "_note": ""
+    },
+    "TikTok": {
+      "bias": 1.5,
+      "tokens": [
+        46338,
+        19042
+      ],
+      "_note": ""
+    },
+    "Netflix": {
+      "bias": 1.5,
+      "tokens": [
+        12074
+      ],
+      "_note": ""
+    },
+    "QoS": {
+      "bias": 1.5,
+      "tokens": [
+        1195,
+        34049
+      ],
+      "_note": ""
+    },
+    "bandwidth": {
+      "bias": 1.5,
+      "tokens": [
+        19484
+      ],
+      "_note": ""
+    },
+    "gateway": {
+      "bias": 1.5,
+      "tokens": [
+        24308
+      ],
+      "_note": ""
+    },
+    "uptime": {
+      "bias": 1.5,
+      "tokens": [
+        18529,
+        524
+      ],
+      "_note": ""
+    },
+    "PlayStation": {
+      "bias": 1.5,
+      "tokens": [
+        14047
+      ],
+      "_note": ""
+    }
+  },
+  "phrase_aware": {
+    "2948": {
+      "7776": 1.0
+    },
+    "2512": {
+      "7444": 1.0,
+      "46338": 1.0,
+      "7776": 1.0
+    },
+    "9967": {
+      "7444": 1.0,
+      "46338": 1.0,
+      "7776": 1.0
+    },
+    "11169": {
+      "11759": 1.0,
+      "5230": 1.0
+    },
+    "4179": {
+      "41022": 1.0
+    },
+    "1451": {
+      "41022": 1.0
+    }
+  },
+  "scenario": {
+    "_comment": "Bias b\u1ed5 sung khi scenario \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c \u0111\u1ecbnh t\u1eeb global decode.",
+    "guest_wifi": {
+      "guest": {
+        "bias": 2.0,
+        "tokens": [
+          8319
+        ]
+      },
+      "Wi-Fi": {
+        "bias": 2.0,
+        "tokens": [
+          11759,
+          12,
+          10547
+        ]
+      },
+      "enable": {
+        "bias": 1.0,
+        "tokens": [
+          21633
+        ]
+      },
+      "disable": {
+        "bias": 1.0,
+        "tokens": [
+          14969
+        ]
+      }
+    },
+    "bandwidth_limit": {
+      "bandwidth": {
+        "bias": 2.0,
+        "tokens": [
+          19484
+        ]
+      },
+      "Mbps": {
+        "bias": 2.0,
+        "tokens": [
+          41022
+        ]
+      },
+      "limit": {
+        "bias": 1.5,
+        "tokens": [
+          4948
+        ]
+      },
+      "cap": {
+        "bias": 1.0,
+        "tokens": [
+          3392
+        ]
+      }
+    },
+    "block_application": {
+      "block": {
+        "bias": 2.0,
+        "tokens": [
+          2512
+        ]
+      },
+      "prevent": {
+        "bias": 1.5,
+        "tokens": [
+          2948
+        ],
+        "_note": "Prevent gaming on the laptop"
+      },
+      "stop": {
+        "bias": 1.0,
+        "tokens": [
+          989
+        ]
+      },
+      "laptop": {
+        "bias": 1.5,
+        "tokens": [
+          13224
+        ],
+        "_note": "...on the laptop"
+      },
+      "YouTube": {
+        "bias": 2.0,
+        "tokens": [
+          7444
+        ]
+      },
+      "TikTok": {
+        "bias": 2.0,
+        "tokens": [
+          46338,
+          19042
+        ]
+      },
+      "gaming": {
+        "bias": 2.0,
+        "tokens": [
+          7776
+        ],
+        "_note": "boost gaming khi block context"
+      }
+    },
+    "unblock_application": {
+      "unblock": {
+        "bias": 2.0,
+        "tokens": [
+          34858
+        ]
+      },
+      "allow": {
+        "bias": 1.5,
+        "tokens": [
+          1809
+        ]
+      },
+      "restore": {
+        "bias": 1.5,
+        "tokens": [
+          10640
+        ]
+      },
+      "laptop": {
+        "bias": 1.5,
+        "tokens": [
+          13224
+        ]
+      },
+      "YouTube": {
+        "bias": 2.0,
+        "tokens": [
+          7444
+        ]
+      },
+      "TikTok": {
+        "bias": 2.0,
+        "tokens": [
+          46338,
+          19042
+        ]
+      },
+      "gaming": {
+        "bias": 1.5,
+        "tokens": [
+          7776
+        ]
+      }
+    },
+    "block_internet": {
+      "block": {
+        "bias": 2.0,
+        "tokens": [
+          2512
+        ]
+      },
+      "internet": {
+        "bias": 2.0,
+        "tokens": [
+          5230
+        ]
+      },
+      "disable": {
+        "bias": 1.5,
+        "tokens": [
+          14969
+        ]
+      }
+    },
+    "unblock_internet": {
+      "unblock": {
+        "bias": 2.0,
+        "tokens": [
+          34858
+        ]
+      },
+      "restore": {
+        "bias": 2.0,
+        "tokens": [
+          10640
+        ]
+      },
+      "Wi-Fi": {
+        "bias": 1.5,
+        "tokens": [
+          11759,
+          12,
+          10547
+        ]
+      },
+      "internet": {
+        "bias": 1.5,
+        "tokens": [
+          5230
+        ]
+      }
+    },
+    "online_devices": {
+      "online": {
+        "bias": 2.0,
+        "tokens": [
+          2691
+        ]
+      },
+      "connected": {
+        "bias": 2.0,
+        "tokens": [
+          5884
+        ]
+      },
+      "clients": {
+        "bias": 1.5,
+        "tokens": [
+          7274
+        ]
+      },
+      "device": {
+        "bias": 1.5,
+        "tokens": [
+          3335
+        ]
+      }
+    },
+    "gaming_sessions": {
+      "gaming": {
+        "bias": 2.5,
+        "tokens": [
+          7776
+        ]
+      },
+      "games": {
+        "bias": 1.5,
+        "tokens": [
+          1216
+        ]
+      },
+      "sessions": {
+        "bias": 1.5,
+        "tokens": [
+          15481
+        ]
+      },
+      "playing": {
+        "bias": 1.5,
+        "tokens": [
+          5737
+        ]
+      }
+    },
+    "open_qos": {
+      "prioritize": {
+        "bias": 2.0,
+        "tokens": [
+          32980
+        ]
+      },
+      "optimize": {
+        "bias": 2.0,
+        "tokens": [
+          27183
+        ]
+      },
+      "QoS": {
+        "bias": 2.0,
+        "tokens": [
+          1195,
+          34049
+        ]
+      },
+      "gaming": {
+        "bias": 1.5,
+        "tokens": [
+          7776
+        ]
+      },
+      "YouTube": {
+        "bias": 1.5,
+        "tokens": [
+          7444
+        ]
+      },
+      "Netflix": {
+        "bias": 1.5,
+        "tokens": [
+          12074
+        ]
+      }
+    }
+  }
+}

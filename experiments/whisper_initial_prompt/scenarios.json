@@ -1,6 +1,6 @@
 {
-  "global_prompt_version": "v5-prioritize-prevent-unblock",
-  "global_prompt": "Router assistant transcript. Enable guest Wi-Fi and turn off the guest network. Limit the phone to 50 Mbps and set the laptop bandwidth to 20 Mbps. Optimize gaming for the PC, boost YouTube, and prioritize Netflix for the smart TV. Prioritize gaming traffic. Block TikTok on the tablet. Prevent gaming on the laptop. Unblock YouTube for the tablet. Unblock internet access. Check the router status, gateway information, and router uptime. Check internet connection quality and open the QoS page. Show the active gaming sessions. Which devices are playing games. Which clients are connected right now. Show all online devices. Show device info for the tablet. Get the connection details for my phone. Restore Wi-Fi access. Block internet for the phone. Check the IP and status of the router.",
+  "global_prompt_version": "v6-balanced-queries",
+  "global_prompt": "Router assistant transcript. Enable guest Wi-Fi and turn off the guest network. Limit the phone to 50 Mbps and set the laptop bandwidth to 20 Mbps. Optimize gaming for the PC, boost YouTube, and prioritize Netflix for the smart TV. Block TikTok on the tablet. Prevent gaming on the laptop. Unblock YouTube for the tablet. Check the router status, gateway information, and router uptime. Check internet connection quality and open the QoS page. Which devices are playing games? Show device info for the tablet. Get the connection details for my phone. Restore Wi-Fi access. Check the IP and status of the router. Is the router connected to the internet? Why is the Wi-Fi so slow on my phone? Is the Wi-Fi stable? How is the network today?",
   "slots": {
     "people": [
       "my son",

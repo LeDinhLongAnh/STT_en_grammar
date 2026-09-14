@@ -1,0 +1,392 @@
+[
+    {
+        "id": "sample_001",
+        "audio_file": "audio/sample_001.wav",
+        "ground_truth": "enable the guest Wi-Fi",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.04,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_002",
+        "audio_file": "audio/sample_002.wav",
+        "ground_truth": "Please turn the guest Wi‑Fi on",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.94,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_003",
+        "audio_file": "audio/sample_003.wav",
+        "ground_truth": "Limit the phone to 50 Mbps.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 5.47,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_004",
+        "audio_file": "audio/sample_004.wav",
+        "ground_truth": "Optimize gaming for the PC.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.17,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_005",
+        "audio_file": "audio/sample_005.wav",
+        "ground_truth": "Boost YouTube on my laptop.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.26,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_006",
+        "audio_file": "audio/sample_006.wav",
+        "ground_truth": "Block YouTube for the tablet.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.69,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_007",
+        "audio_file": "audio/sample_007.wav",
+        "ground_truth": "Prevent gaming on the laptop.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.91,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_008",
+        "audio_file": "audio/sample_008.wav",
+        "ground_truth": "Disable internet access on the guest laptop.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.7,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_009",
+        "audio_file": "audio/sample_009.wav",
+        "ground_truth": "Restore Wi‑Fi access to my phone.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.58,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_010",
+        "audio_file": "audio/sample_010.wav",
+        "ground_truth": "Let the laptop connect to the internet",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.65,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_011",
+        "audio_file": "audio/sample_011.wav",
+        "ground_truth": "Who is video call  right now?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.06,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_012",
+        "audio_file": "audio/sample_012.wav",
+        "ground_truth": "List the devices currently using Wi‑Fi.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.93,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_013",
+        "audio_file": "audio/sample_013.wav",
+        "ground_truth": "Check the router status.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.34,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_014",
+        "audio_file": "audio/sample_014.wav",
+        "ground_truth": "Show my gateway information.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.33,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_015",
+        "audio_file": "audio/sample_015.wav",
+        "ground_truth": "What is the router uptime?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.26,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_016",
+        "audio_file": "audio/sample_016.wav",
+        "ground_truth": "Show device info for the tablet.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.87,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_017",
+        "audio_file": "audio/sample_017.wav",
+        "ground_truth": "Get the connection details for my phone.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.75,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_018",
+        "audio_file": "audio/sample_018.wav",
+        "ground_truth": "What are the IP and status of the laptop?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.51,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_019",
+        "audio_file": "audio/sample_019.wav",
+        "ground_truth": "How is the network today?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.94,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_020",
+        "audio_file": "audio/sample_020.wav",
+        "ground_truth": "Check the internet connection quality.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.2,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_021",
+        "audio_file": "audio/sample_021.wav",
+        "ground_truth": "Is the Wi‑Fi stable?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.91,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_022",
+        "audio_file": "audio/sample_022.wav",
+        "ground_truth": "What time is it and what's the weather today?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 5.7,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_023",
+        "audio_file": "audio/sample_023.wav",
+        "ground_truth": "Wake me up at 7 AM.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.03,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_024",
+        "audio_file": "audio/sample_024.wav",
+        "ground_truth": "Turn on the lights and Turn off the TV.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.1,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_025",
+        "audio_file": "audio/sample_025.wav",
+        "ground_truth": "Is the router connected to the internet",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.06,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_026",
+        "audio_file": "audio/sample_026.wav",
+        "ground_truth": "Why is the Wi-Fi so slow on my phone today?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.96,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    }
+]
