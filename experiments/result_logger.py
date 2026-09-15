@@ -19,10 +19,13 @@ CSV_COLUMNS = [
     "Reference",
     "Baseline_Text",
     "Baseline_WER",
+    "Baseline_Time_s",
     "Global_Text",
     "Global_WER",
+    "Global_Time_s",
     "GlobalBias_Text",
     "GlobalBias_WER",
+    "GlobalBias_Time_s",
     "GlobalBias_RAM_MB",
     "Scenario_Text",
     "Scenario_WER",
@@ -82,13 +85,37 @@ def generate_markdown_report(csv_path: Path, title: str = "Báo cáo thử nghi�
     has_bias = any(r.get("GlobalBias_Text") for r in rows)
     has_global = any(r.get("Global_Text") for r in rows)
 
+    def parse_float(val: str) -> float:
+        try:
+            return float(val) if val else 0.0
+        except ValueError:
+            return 0.0
+
+    avg_base_time = sum(parse_float(r.get("Baseline_Time_s", "0")) for r in rows) / total if total else 0.0
+    avg_glob_time = sum(parse_float(r.get("Global_Time_s", "0")) for r in rows) / total if total else 0.0
+    avg_bias_time = sum(parse_float(r.get("GlobalBias_Time_s", "0")) for r in rows) / total if total else 0.0
+
     lines = [
         f"# {title}",
         f"",
         f"**Thời gian xuất báo cáo:** {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}  ",
         f"**Tổng số lượt test:** {total} lượt ({source_breakdown})  ",
         f"",
-        f"## 1. Tóm tắt hiệu quả của Prompt (So sánh: Không Prompt vs Có Prompt)",
+        f"## 1. Thời gian sinh trung bình 1 câu",
+        f"",
+        f"| Chế độ | Thời gian trung bình |",
+        f"|---|---:|",
+        f"| **Không Prompt (Baseline)** | {avg_base_time:.2f}s |",
+    ]
+    
+    if has_global:
+        lines.append(f"| **Global Prompt** | {avg_glob_time:.2f}s |")
+    if has_bias:
+        lines.append(f"| **Global + Logit Bias** | {avg_bias_time:.2f}s |")
+        
+    lines.extend([
+        f"",
+        f"## 2. Tóm tắt hiệu quả của Prompt (So sánh: Không Prompt vs Có Prompt)",
         f"",
         f"| Chỉ số | Số lượng | Tỷ lệ (%) |",
         f"|---|---:|---:|",
@@ -96,28 +123,34 @@ def generate_markdown_report(csv_path: Path, title: str = "Báo cáo thử nghi�
         f"| 🔴 **Xấu hơn (Prompt gây ảo giác/sai)** | **{worsened}** | **{worsened / total * 100:.1f}%** |",
         f"| ⚪ **Không đổi (Cả hai cùng đúng/sai)** | **{unchanged}** | **{unchanged / total * 100:.1f}%** |",
         f"",
-        f"## 2. Bảng kết quả chi tiết từng lượt test",
+        f"## 3. Bảng kết quả chi tiết từng lượt test",
         f"",
-    ]
+    ])
 
     if has_bias and has_global:
         lines.append("| Thời gian | Nguồn | Câu chuẩn (Reference) | 1. Không Prompt | 2. Global Prompt | 3. Global + Logit Bias | Đánh giá |")
         lines.append("|---|:---:|---|---|---|---|:---:|")
-        for r in rows[-30:]:
+        for r in rows:
             t = r.get("Timestamp", "")[11:]
             src = r.get("Source_Type", "")
             ref = r.get("Reference", "")
             base = r.get("Baseline_Text", "")
             base_wer = r.get("Baseline_WER", "")
-            base_disp = f"{base} *({base_wer})*" if base else "—"
+            base_time = r.get("Baseline_Time_s", "")
+            base_perf = f"{base_wer}" + (f", {base_time}s" if base_time else "")
+            base_disp = f"{base} <br><i>({base_perf})</i>" if base else "—"
 
             glob = r.get("Global_Text", "")
             glob_wer = r.get("Global_WER", "")
-            glob_disp = f"{glob} *({glob_wer})*" if glob else "—"
+            glob_time = r.get("Global_Time_s", "")
+            glob_perf = f"{glob_wer}" + (f", {glob_time}s" if glob_time else "")
+            glob_disp = f"{glob} <br><i>({glob_perf})</i>" if glob else "—"
 
             bias = r.get("GlobalBias_Text") or r.get("Scenario_Text") or glob
             bias_wer = r.get("GlobalBias_WER") or r.get("Scenario_WER") or glob_wer
-            bias_disp = f"{bias} *({bias_wer})*" if bias else "—"
+            bias_time = r.get("GlobalBias_Time_s", "")
+            bias_perf = f"{bias_wer}" + (f", {bias_time}s" if bias_time else "")
+            bias_disp = f"{bias} <br><i>({bias_perf})</i>" if bias else "—"
 
             verd = r.get("Prompt_Verdict", "")
             icon = "🟢" if "TỐT HƠN" in verd else "🔴" if "XẤU HƠN" in verd else "⚪"
@@ -125,18 +158,22 @@ def generate_markdown_report(csv_path: Path, title: str = "Báo cáo thử nghi�
     else:
         lines.append("| Thời gian | Nguồn | Kịch bản | Câu chuẩn (Reference) | 1. Không Prompt | 2. Có Prompt | Đánh giá |")
         lines.append("|---|:---:|---|---|---|---|:---:|")
-        for r in rows[-30:]:
+        for r in rows:
             t = r.get("Timestamp", "")[11:]
             src = r.get("Source_Type", "")
             scen = r.get("Scenario", "")
             ref = r.get("Reference", "")
             base = r.get("Baseline_Text", "")
             base_wer = r.get("Baseline_WER", "")
-            base_disp = f"{base} *({base_wer})*" if base else "—"
+            base_time = r.get("Baseline_Time_s", "")
+            base_perf = f"{base_wer}" + (f", {base_time}s" if base_time else "")
+            base_disp = f"{base} <br><i>({base_perf})</i>" if base else "—"
 
             prompt_text = r.get("GlobalBias_Text") or r.get("Scenario_Text") or r.get("Global_Text") or ""
             prompt_wer = r.get("GlobalBias_WER") or r.get("Scenario_WER") or r.get("Global_WER") or ""
-            prompt_disp = f"{prompt_text} *({prompt_wer})*" if prompt_text else "—"
+            prompt_time = r.get("GlobalBias_Time_s") or r.get("Global_Time_s") or ""
+            prompt_perf = f"{prompt_wer}" + (f", {prompt_time}s" if prompt_time else "")
+            prompt_disp = f"{prompt_text} <br><i>({prompt_perf})</i>" if prompt_text else "—"
 
             verd = r.get("Prompt_Verdict", "")
             icon = "🟢" if "TỐT HƠN" in verd else "🔴" if "XẤU HƠN" in verd else "⚪"

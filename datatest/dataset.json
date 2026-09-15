@@ -388,5 +388,215 @@
         "tags": [
             "natural_speech"
         ]
+    },
+    {
+        "id": "sample_027",
+        "audio_file": "audio/sample_027.wav",
+        "ground_truth": "Reset the password for the guest network.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.68,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_028",
+        "audio_file": "audio/sample_028.wav",
+        "ground_truth": "Rename my Wi‑Fi network.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.53,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_029",
+        "audio_file": "audio/sample_029.wav",
+        "ground_truth": "What is the current Wi‑Fi name?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.91,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_030",
+        "audio_file": "audio/sample_030.wav",
+        "ground_truth": "Allow internet only from 6 AM to 8 PM on my son's device.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 6.53,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_031",
+        "audio_file": "audio/sample_031.wav",
+        "ground_truth": "Restart the router.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.91,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_032",
+        "audio_file": "audio/sample_032.wav",
+        "ground_truth": "Reboot my home gateway now.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.3,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_033",
+        "audio_file": "audio/sample_033.wav",
+        "ground_truth": "Can you power cycle the router?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.33,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_034",
+        "audio_file": "audio/sample_034.wav",
+        "ground_truth": "Check for firmware updates.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.04,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_035",
+        "audio_file": "audio/sample_035.wav",
+        "ground_truth": "Update the router software.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.78,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_036",
+        "audio_file": "audio/sample_036.wav",
+        "ground_truth": "Is my router running the latest firmware?",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 4.58,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_037",
+        "audio_file": "audio/sample_037.wav",
+        "ground_truth": "Run a speed test.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.34,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_038",
+        "audio_file": "audio/sample_038.wav",
+        "ground_truth": "speed test",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 1.76,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_039",
+        "audio_file": "audio/sample_039.wav",
+        "ground_truth": "Test the Wi‑Fi speed on my laptop.",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 3.3,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
+    },
+    {
+        "id": "sample_040",
+        "audio_file": "audio/sample_040.wav",
+        "ground_truth": "Rename this device",
+        "speaker": "speaker_01",
+        "mic_source": "esp32",
+        "duration_s": 2.4,
+        "language": "en",
+        "accent": "vietnamese",
+        "speed": "normal",
+        "environment": "quiet",
+        "tags": [
+            "natural_speech"
+        ]
     }
 ]

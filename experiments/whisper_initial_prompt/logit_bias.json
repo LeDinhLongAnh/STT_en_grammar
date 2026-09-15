@@ -1,7 +1,7 @@
 {
-  "_comment": "Logit Bias config cho Whisper router domain (ti\u1ebfng Anh ph\u00e1t \u00e2m b\u1edfi ng\u01b0\u1eddi Vi\u1ec7t).",
-  "_comment2": "Token IDs \u0111\u01b0\u1ee3c x\u00e1c minh b\u1eb1ng tokenizer whisper/base.en. Thay \u0111\u1ed5i bias \u1edf \u0111\u00e2y r\u1ed3i restart dashboard.",
-  "_comment3": "bias_mode: 'first_token_only' (boost token \u0111\u1ea7u c\u1ee7a m\u1ed7i t\u1eeb) ho\u1eb7c 'all_tokens' (boost t\u1ea5t c\u1ea3).",
+  "_comment": "Logit Bias config cho Whisper router domain (tiếng Anh phát âm bởi người Việt).",
+  "_comment2": "Token IDs được xác minh bằng tokenizer whisper/base.en. Thay đổi bias ở đây rồi restart dashboard.",
+  "_comment3": "bias_mode: 'first_token_only' (boost token đầu của mỗi từ) hoặc 'all_tokens' (boost tất cả).",
   "enabled": true,
   "bias_mode": "first_token_only",
   "global": {
@@ -10,14 +10,14 @@
       "tokens": [
         20264
       ],
-      "_note": "route\u2192router"
+      "_note": "route→router"
     },
     "device": {
       "bias": 2.5,
       "tokens": [
         3335
       ],
-      "_note": "divine\u2192device"
+      "_note": "divine→device"
     },
     "Wi-Fi": {
       "bias": 1.8,
@@ -26,70 +26,70 @@
         12,
         10547
       ],
-      "_note": "wai/way\u2192Wi-Fi"
+      "_note": "wai/way→Wi-Fi"
     },
     "gateway": {
-      "bias": 2.0,
+      "bias": 2.5,
       "tokens": [
         24308
       ],
-      "_note": "good-good\u2192gateway"
+      "_note": "auto-updated from tuner"
     },
     "tablet": {
-      "bias": 2.0,
+      "bias": 1.5,
       "tokens": [
         14147
       ],
-      "_note": "top left\u2192tablet"
+      "_note": ""
     },
     "status": {
       "bias": 2.0,
       "tokens": [
         3722
       ],
-      "_note": "data\u2192status"
+      "_note": "data→status"
     },
     "lights": {
-      "bias": 2.0,
+      "bias": 2.5,
       "tokens": [
         7588
       ],
-      "_note": "line\u2192lights"
+      "_note": "auto-updated from tuner"
     },
     "online": {
-      "bias": 2.0,
+      "bias": 2.5,
       "tokens": [
         2691
       ],
-      "_note": "onlari\u2192online"
+      "_note": "auto-updated from tuner"
     },
     "internet": {
       "bias": 2.0,
       "tokens": [
         5230
       ],
-      "_note": "ethernet\u2192internet"
+      "_note": "ethernet→internet"
     },
     "guest": {
-      "bias": 2.0,
+      "bias": 3.5,
       "tokens": [
         8319
       ],
-      "_note": "cast\u2192guest"
+      "_note": "auto-updated from tuner"
     },
     "gaming": {
       "bias": 2.0,
       "tokens": [
         7776
       ],
-      "_note": ""
+      "_note": "auto-updated from tuner"
     },
     "Mbps": {
       "bias": 2.0,
       "tokens": [
         41022
       ],
-      "_note": "mb per second\u2192Mbps"
+      "_note": "mb per second→Mbps"
     },
     "phone": {
       "bias": 1.5,
@@ -98,33 +98,26 @@
       ],
       "_note": ""
     },
-    "tablet": {
-      "bias": 1.5,
-      "tokens": [
-        14147
-      ],
-      "_note": ""
-    },
     "laptop": {
       "bias": 1.5,
       "tokens": [
         13224
       ],
-      "_note": ""
+      "_note": "auto-updated from tuner"
     },
     "PC": {
       "bias": 1.5,
       "tokens": [
         4217
       ],
-      "_note": "B.C./bc\u2192PC"
+      "_note": "B.C./bc→PC"
     },
     "priority": {
       "bias": 1.5,
       "tokens": [
         8475
       ],
-      "_note": "Powerity\u2192Priority"
+      "_note": "Powerity→Priority"
     },
     "prioritize": {
       "bias": 1.5,
@@ -134,11 +127,12 @@
       "_note": ""
     },
     "optimize": {
-      "bias": 1.5,
+      "bias": 2.0,
       "tokens": [
-        27183
+        30011,
+        1096
       ],
-      "_note": "Optimized\u2192Optimize"
+      "_note": "auto-updated from tuner"
     },
     "which": {
       "bias": 3.0,
@@ -148,16 +142,16 @@
         543,
         4758
       ],
-      "_note": "bao g\u1ed3m Which vi\u1ebft hoa (13828, 9022) v\u00ec n\u00f3 \u0111\u1ee9ng \u0111\u1ea7u c\u00e2u"
+      "_note": "bao gồm Which viết hoa (13828, 9022) vì nó đứng đầu câu"
     },
     "_removed_all": {
-      "_note": "REMOVED v6: all/477 \u2014 t\u1eeb t\u1ea7n su\u1ea5t cao, kh\u00f4ng \u0111\u1eb7c th\u00f9 router, r\u1ee7i ro khi m\u1edf r\u1ed9ng domain"
+      "_note": "REMOVED v6: all/477 — từ tần suất cao, không đặc thù router, rủi ro khi mở rộng domain"
     },
     "_removed_of": {
-      "_note": "REMOVED v6: of/286  \u2014 t\u1eeb t\u1ea7n su\u1ea5t cao, kh\u00f4ng \u0111\u1eb7c th\u00f9 router"
+      "_note": "REMOVED v6: of/286  — từ tần suất cao, không đặc thù router"
     },
     "_removed_off": {
-      "_note": "REMOVED v6: off/572 \u2014 t\u1eeb t\u1ea7n su\u1ea5t cao, kh\u00f4ng \u0111\u1eb7c th\u00f9 router; turn off v\u1eabn \u0111\u01b0\u1ee3c phrase_aware cover"
+      "_note": "REMOVED v6: off/572 — từ tần suất cao, không đặc thù router; turn off vẫn được phrase_aware cover"
     },
     "YouTube": {
       "bias": 1.5,
@@ -196,13 +190,6 @@
       ],
       "_note": ""
     },
-    "gateway": {
-      "bias": 1.5,
-      "tokens": [
-        24308
-      ],
-      "_note": ""
-    },
     "uptime": {
       "bias": 1.5,
       "tokens": [
@@ -217,6 +204,1150 @@
         14047
       ],
       "_note": ""
+    },
+    "Reboot": {
+      "bias": 2.5,
+      "tokens": [
+        50204
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "WiFi": {
+      "bias": 3.5,
+      "tokens": [
+        24904
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "the": {
+      "bias": 3.0,
+      "tokens": [
+        262
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "AM": {
+      "bias": 2.0,
+      "tokens": [
+        3001
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "firmware": {
+      "bias": 2.5,
+      "tokens": [
+        18779
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Who": {
+      "bias": 3.0,
+      "tokens": [
+        5338
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "is": {
+      "bias": 3.5,
+      "tokens": [
+        318
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "devices": {
+      "bias": 2.5,
+      "tokens": [
+        4410
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "whats": {
+      "bias": 3.0,
+      "tokens": [
+        28556
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "weather": {
+      "bias": 2.0,
+      "tokens": [
+        6193
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "7": {
+      "bias": 2.0,
+      "tokens": [
+        767
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "my": {
+      "bias": 3.0,
+      "tokens": [
+        616
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "6": {
+      "bias": 2.0,
+      "tokens": [
+        718
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "8": {
+      "bias": 2.0,
+      "tokens": [
+        807
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "PM": {
+      "bias": 2.5,
+      "tokens": [
+        3122
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "sons": {
+      "bias": 2.5,
+      "tokens": [
+        11989
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "cycle": {
+      "bias": 3.0,
+      "tokens": [
+        6772
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "for": {
+      "bias": 3.0,
+      "tokens": [
+        329
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "updates": {
+      "bias": 3.5,
+      "tokens": [
+        5992
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "latest": {
+      "bias": 2.0,
+      "tokens": [
+        3452
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "Run": {
+      "bias": 3.5,
+      "tokens": [
+        5660
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "a": {
+      "bias": 3.5,
+      "tokens": [
+        257
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "test": {
+      "bias": 3.5,
+      "tokens": [
+        1332
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Rename": {
+      "bias": 3.0,
+      "tokens": [
+        7152,
+        480
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "this": {
+      "bias": 2.5,
+      "tokens": [
+        428
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "if": {
+      "bias": 3.0,
+      "tokens": [
+        611
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Tell": {
+      "bias": 3.5,
+      "tokens": [
+        14026
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "on": {
+      "bias": 2.5,
+      "tokens": [
+        319
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "WAN": {
+      "bias": 3.0,
+      "tokens": [
+        370,
+        1565
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "working": {
+      "bias": 2.0,
+      "tokens": [
+        1762
+      ],
+      "_note": "auto-added from tuner"
+    },
+    "whether": {
+      "bias": 2.5,
+      "tokens": [
+        1771
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "ping": {
+      "bias": 2.0,
+      "tokens": [
+        29400
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "fast": {
+      "bias": 2.0,
+      "tokens": [
+        3049
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "normal": {
+      "bias": 2.0,
+      "tokens": [
+        3487
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "me": {
+      "bias": 2.5,
+      "tokens": [
+        502
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "throughput": {
+      "bias": 2.0,
+      "tokens": [
+        41997
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Disable": {
+      "bias": 3.0,
+      "tokens": [
+        15560
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "network": {
+      "bias": 2.0,
+      "tokens": [
+        3127
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "enabled": {
+      "bias": 3.0,
+      "tokens": [
+        9343
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "active": {
+      "bias": 2.5,
+      "tokens": [
+        4075
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Show": {
+      "bias": 2.0,
+      "tokens": [
+        905
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Please": {
+      "bias": 2.0,
+      "tokens": [
+        4222
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Can": {
+      "bias": 2.0,
+      "tokens": [
+        1680
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "thirty": {
+      "bias": 2.5,
+      "tokens": [
+        12277
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "do": {
+      "bias": 2.0,
+      "tokens": [
+        2141
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Play": {
+      "bias": 2.0,
+      "tokens": [
+        3811
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "two": {
+      "bias": 2.0,
+      "tokens": [
+        734
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "to": {
+      "bias": 2.0,
+      "tokens": [
+        284
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Turn": {
+      "bias": 2.0,
+      "tokens": [
+        1210
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Give": {
+      "bias": 2.0,
+      "tokens": [
+        13786
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "details": {
+      "bias": 2.0,
+      "tokens": [
+        3307
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "wireless": {
+      "bias": 2.0,
+      "tokens": [
+        12521
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "routers": {
+      "bias": 2.0,
+      "tokens": [
+        41144
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Hows": {
+      "bias": 2.0,
+      "tokens": [
+        1374,
+        82
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "are": {
+      "bias": 2.0,
+      "tokens": [
+        389
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "tomorrow": {
+      "bias": 2.0,
+      "tokens": [
+        9439
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "I": {
+      "bias": 2.0,
+      "tokens": [
+        314
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "an": {
+      "bias": 2.0,
+      "tokens": [
+        281
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "alarm": {
+      "bias": 2.8,
+      "tokens": [
+        10436
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "six": {
+      "bias": 2.5,
+      "tokens": [
+        2237
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "seven": {
+      "bias": 2.5,
+      "tokens": [
+        3598
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "eight": {
+      "bias": 2.0,
+      "tokens": [
+        3624
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Cancel": {
+      "bias": 2.0,
+      "tokens": [
+        27910
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "reminders": {
+      "bias": 2.5,
+      "tokens": [
+        40687
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "three": {
+      "bias": 2.0,
+      "tokens": [
+        1115
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Start": {
+      "bias": 2.0,
+      "tokens": [
+        7253
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "What": {
+      "bias": 2.0,
+      "tokens": [
+        1867
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Check": {
+      "bias": 2.0,
+      "tokens": [
+        2198
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "List": {
+      "bias": 2.0,
+      "tokens": [
+        7343
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "connected": {
+      "bias": 2.0,
+      "tokens": [
+        5884
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "all": {
+      "bias": 2.0,
+      "tokens": [
+        477
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "speed": {
+      "bias": 2.0,
+      "tokens": [
+        2866
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Let": {
+      "bias": 2.0,
+      "tokens": [
+        3914
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Allow": {
+      "bias": 2.0,
+      "tokens": [
+        22507
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "rain": {
+      "bias": 2.5,
+      "tokens": [
+        6290
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "todays": {
+      "bias": 2.0,
+      "tokens": [
+        284,
+        12545
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "like": {
+      "bias": 2.0,
+      "tokens": [
+        588
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "forecast": {
+      "bias": 2.5,
+      "tokens": [
+        11092
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "need": {
+      "bias": 2.0,
+      "tokens": [
+        761
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "its": {
+      "bias": 2.0,
+      "tokens": [
+        663
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "noon": {
+      "bias": 2.0,
+      "tokens": [
+        19613
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "fifteen": {
+      "bias": 2.0,
+      "tokens": [
+        17280
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "set": {
+      "bias": 2.5,
+      "tokens": [
+        5345
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "ten": {
+      "bias": 2.0,
+      "tokens": [
+        3478
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "weekday": {
+      "bias": 3.0,
+      "tokens": [
+        28269
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "past": {
+      "bias": 2.0,
+      "tokens": [
+        1613
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Remind": {
+      "bias": 2.0,
+      "tokens": [
+        3982,
+        521
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "off": {
+      "bias": 2.0,
+      "tokens": [
+        572
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "upbeat": {
+      "bias": 2.0,
+      "tokens": [
+        44337
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Pause": {
+      "bias": 2.0,
+      "tokens": [
+        350,
+        682
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Resume": {
+      "bias": 2.0,
+      "tokens": [
+        1874,
+        2454
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "playback": {
+      "bias": 2.0,
+      "tokens": [
+        16388
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Skip": {
+      "bias": 2.0,
+      "tokens": [
+        32214
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "song": {
+      "bias": 2.0,
+      "tokens": [
+        3496
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Mute": {
+      "bias": 2.0,
+      "tokens": [
+        337,
+        1133
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "audio": {
+      "bias": 2.0,
+      "tokens": [
+        6597
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Unmute": {
+      "bias": 2.0,
+      "tokens": [
+        791,
+        76,
+        1133
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Stop": {
+      "bias": 2.0,
+      "tokens": [
+        13707
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "track": {
+      "bias": 2.0,
+      "tokens": [
+        2610
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Dial": {
+      "bias": 2.0,
+      "tokens": [
+        21269
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "called": {
+      "bias": 2.0,
+      "tokens": [
+        1444
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "sent": {
+      "bias": 2.0,
+      "tokens": [
+        1908
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "text": {
+      "bias": 2.0,
+      "tokens": [
+        2420
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "saying": {
+      "bias": 2.0,
+      "tokens": [
+        2282
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Read": {
+      "bias": 2.0,
+      "tokens": [
+        4149
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "unread": {
+      "bias": 2.0,
+      "tokens": [
+        555,
+        961
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "When": {
+      "bias": 2.0,
+      "tokens": [
+        1649
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "oclock": {
+      "bias": 2.0,
+      "tokens": [
+        267,
+        15750
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "four": {
+      "bias": 2.0,
+      "tokens": [
+        1440
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "heavy": {
+      "bias": 2.0,
+      "tokens": [
+        4334
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "route": {
+      "bias": 2.0,
+      "tokens": [
+        6339
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "airport": {
+      "bias": 2.0,
+      "tokens": [
+        9003
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "places": {
+      "bias": 2.0,
+      "tokens": [
+        4113
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "eat": {
+      "bias": 2.0,
+      "tokens": [
+        4483
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "twenty": {
+      "bias": 2.0,
+      "tokens": [
+        8208
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "fan": {
+      "bias": 2.0,
+      "tokens": [
+        4336
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "fifty": {
+      "bias": 2.0,
+      "tokens": [
+        15334
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "percent": {
+      "bias": 2.0,
+      "tokens": [
+        1411
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Lock": {
+      "bias": 2.0,
+      "tokens": [
+        13656
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "health": {
+      "bias": 2.0,
+      "tokens": [
+        1535
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "clients": {
+      "bias": 2.0,
+      "tokens": [
+        7534
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "does": {
+      "bias": 2.0,
+      "tokens": [
+        857
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "have": {
+      "bias": 2.0,
+      "tokens": [
+        423
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "weak": {
+      "bias": 2.0,
+      "tokens": [
+        4939
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "here": {
+      "bias": 2.0,
+      "tokens": [
+        994
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Has": {
+      "bias": 2.0,
+      "tokens": [
+        7875
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "joined": {
+      "bias": 2.0,
+      "tokens": [
+        5399
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "theres": {
+      "bias": 2.0,
+      "tokens": [
+        262,
+        411
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "outage": {
+      "bias": 2.0,
+      "tokens": [
+        46281
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "current": {
+      "bias": 2.0,
+      "tokens": [
+        1459
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Whos": {
+      "bias": 2.0,
+      "tokens": [
+        348,
+        418
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "gadgets": {
+      "bias": 2.0,
+      "tokens": [
+        35281
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "MAC": {
+      "bias": 2.0,
+      "tokens": [
+        20582
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "smartphone": {
+      "bias": 2.0,
+      "tokens": [
+        11745
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "laptops": {
+      "bias": 2.0,
+      "tokens": [
+        26635
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "default": {
+      "bias": 2.0,
+      "tokens": [
+        4277
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "as": {
+      "bias": 2.0,
+      "tokens": [
+        355
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "settings": {
+      "bias": 2.0,
+      "tokens": [
+        6460
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "coverage": {
+      "bias": 2.0,
+      "tokens": [
+        5197
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "bars": {
+      "bias": 2.0,
+      "tokens": [
+        9210
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "download": {
+      "bias": 2.0,
+      "tokens": [
+        4321
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "response": {
+      "bias": 2.0,
+      "tokens": [
+        2882
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "latency": {
+      "bias": 2.0,
+      "tokens": [
+        24812
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "of": {
+      "bias": 2.0,
+      "tokens": [
+        286
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "lag": {
+      "bias": 2.0,
+      "tokens": [
+        19470
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "measure": {
+      "bias": 2.0,
+      "tokens": [
+        3953
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "round-trip": {
+      "bias": 2.0,
+      "tokens": [
+        2835,
+        12,
+        39813
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "time": {
+      "bias": 2.0,
+      "tokens": [
+        640
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "laggy": {
+      "bias": 2.0,
+      "tokens": [
+        19470,
+        1360
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "it": {
+      "bias": 2.0,
+      "tokens": [
+        340
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "charge": {
+      "bias": 2.5,
+      "tokens": [
+        3877
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "call": {
+      "bias": 2.0,
+      "tokens": [
+        869
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "video": {
+      "bias": 2.0,
+      "tokens": [
+        2008
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "later": {
+      "bias": 2.0,
+      "tokens": [
+        1568
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "reminder": {
+      "bias": 2.0,
+      "tokens": [
+        15438
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "Will": {
+      "bias": 2.0,
+      "tokens": [
+        2561
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "today": {
+      "bias": 1.5,
+      "tokens": [
+        1909
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "date": {
+      "bias": 2.0,
+      "tokens": [
+        3128
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "morning": {
+      "bias": 1.5,
+      "tokens": [
+        3329
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "at": {
+      "bias": 2.0,
+      "tokens": [
+        379
+      ],
+      "_note": "auto-updated from tuner"
+    },
+    "goes": {
+      "bias": 1.5,
+      "tokens": [
+        2925
+      ],
+      "_note": "auto-updated from tuner"
     }
   },
   "phrase_aware": {
@@ -245,7 +1376,7 @@
     }
   },
   "scenario": {
-    "_comment": "Bias b\u1ed5 sung khi scenario \u0111\u00e3 \u0111\u01b0\u1ee3c x\u00e1c \u0111\u1ecbnh t\u1eeb global decode.",
+    "_comment": "Bias bổ sung khi scenario đã được xác định từ global decode.",
     "guest_wifi": {
       "guest": {
         "bias": 2.0,

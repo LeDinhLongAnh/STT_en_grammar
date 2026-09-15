@@ -276,11 +276,14 @@ class BatchBenchmarkWorker(QThread):
                     "Reference": gt,
                     "Baseline_Text": text_none,
                     "Baseline_WER": f"{wer_none * 100:.1f}%",
+                    "Baseline_Time_s": f"{sec_none:.2f}",
                     "Global_Text": text_glob,
                     "Global_WER": f"{wer_glob * 100:.1f}%",
+                    "Global_Time_s": f"{sec_glob:.2f}",
                     "Global_RAM_MB": "0.0",
                     "GlobalBias_Text": text_bias,
                     "GlobalBias_WER": f"{wer_bias * 100:.1f}%",
+                    "GlobalBias_Time_s": f"{sec_bias:.2f}",
                     "GlobalBias_RAM_MB": "0.0",
                     "Scenario_Text": text_bias,
                     "Scenario_WER": f"{wer_bias * 100:.1f}%",
@@ -631,7 +634,11 @@ class WhisperPromptDashboard(QMainWindow):
         self.refresh_ds_btn.clicked.connect(lambda: self._load_dataset_catalog(preserve_selection=False))
         ds_row.addWidget(self.refresh_ds_btn)
 
-        self.batch_ds_btn = QPushButton("⚡ Chạy toàn bộ Dataset")
+        self.batch_range_combo = QComboBox()
+        self.batch_range_combo.setFixedWidth(130)
+        ds_row.addWidget(self.batch_range_combo)
+
+        self.batch_ds_btn = QPushButton("⚡ Chạy Benchmark")
         self.batch_ds_btn.setStyleSheet(
             "QPushButton { background:#7c3aed; color:white; font-weight:700; "
             "border-radius:4px; padding:4px 10px; } "
@@ -708,11 +715,9 @@ class WhisperPromptDashboard(QMainWindow):
         self._load_dataset_catalog()
 
     def _load_dataset_catalog(self, preserve_selection: bool = True) -> None:
-        """Load danh sach cac mau tu datatest/dataset.json vao combobox."""
+        """Load danh sach cac mau tu datatest/dataset.json va cac file WAV."""
         workspace_root = Path(__file__).resolve().parents[2]
         ds_path = workspace_root / "datatest" / "dataset.json"
-        if not ds_path.is_file():
-            return
 
         try:
             self._last_dataset_mtime = ds_path.stat().st_mtime
@@ -722,11 +727,56 @@ class WhisperPromptDashboard(QMainWindow):
         current_idx = self.dataset_combo.currentIndex() if preserve_selection else -1
 
         self.dataset_items = []
-        try:
-            with open(ds_path, "r", encoding="utf-8") as f:
-                self.dataset_items = json.load(f)
-        except Exception:
-            return
+        if ds_path.is_file():
+            try:
+                with open(ds_path, "r", encoding="utf-8") as f:
+                    self.dataset_items = json.load(f)
+            except Exception:
+                pass
+
+        existing_audio_files = {
+            Path(item.get("audio_file", "")).name.lower()
+            for item in self.dataset_items if isinstance(item, dict)
+        }
+
+        # Quét thêm thư mục audio và synthetic_router_wifi
+        import wave
+        import contextlib
+        for folder_name in ["audio", "synthetic_router_wifi"]:
+            scan_dir = workspace_root / "datatest" / folder_name
+            if scan_dir.is_dir():
+                for wav_file in sorted(scan_dir.glob("*.wav")):
+                    if wav_file.name.lower() not in existing_audio_files:
+                        gt = ""
+                        try:
+                            # Lấy ground truth từ synthetic_dataset.json nếu có
+                            meta_path = scan_dir / "synthetic_dataset.json"
+                            if meta_path.is_file():
+                                with open(meta_path, "r", encoding="utf-8") as fm:
+                                    meta = json.load(fm)
+                                    for m in meta:
+                                        if m.get("audio") == wav_file.name:
+                                            gt = m.get("text", "")
+                                            break
+                        except Exception:
+                            pass
+
+                        try:
+                            with contextlib.closing(wave.open(str(wav_file), 'r')) as w:
+                                frames = w.getnframes()
+                                rate = w.getframerate()
+                                duration = round(frames / float(rate), 2)
+                        except Exception:
+                            duration = 0.0
+
+                        self.dataset_items.append({
+                            "id": wav_file.stem,
+                            "audio_file": f"{folder_name}/{wav_file.name}",
+                            "ground_truth": gt,
+                            "duration_s": duration,
+                            "accent": "unknown"
+                        })
+                        existing_audio_files.add(wav_file.name.lower())
 
         self.dataset_combo.blockSignals(True)
         self.dataset_combo.clear()
@@ -742,6 +792,25 @@ class WhisperPromptDashboard(QMainWindow):
         elif self.dataset_combo.count() > 0:
             self.dataset_combo.setCurrentIndex(0)
         self.dataset_combo.blockSignals(False)
+        self._update_batch_ranges()
+
+    def _update_batch_ranges(self) -> None:
+        if not hasattr(self, "batch_range_combo"):
+            return
+        self.batch_range_combo.blockSignals(True)
+        self.batch_range_combo.clear()
+        total = len(self.dataset_items)
+        if total == 0:
+            self.batch_range_combo.blockSignals(False)
+            return
+        
+        self.batch_range_combo.addItem(f"Toàn bộ ({total} câu)", (0, total))
+        chunk_size = 20
+        for i in range(0, total, chunk_size):
+            start = i + 1
+            end = min(i + chunk_size, total)
+            self.batch_range_combo.addItem(f"Câu {start}-{end}", (i, end))
+        self.batch_range_combo.blockSignals(False)
 
     def _check_dataset_updates(self) -> None:
         """Tu dong kiem tra va nap them mau moi neu vua thu am xong o recording_studio.py."""
@@ -785,12 +854,19 @@ class WhisperPromptDashboard(QMainWindow):
 
     def _run_batch_benchmark(self) -> None:
         if not self.dataset_items:
-            QMessageBox.warning(self, "Không có dataset", "Không tìm thấy mẫu nào trong datatest/dataset.json")
+            QMessageBox.warning(self, "Không có dataset", "Không tìm thấy mẫu nào.")
             return
+            
+        range_data = self.batch_range_combo.currentData()
+        if not range_data:
+            range_data = (0, len(self.dataset_items))
+            
+        start_idx, end_idx = range_data
+        subset_items = self.dataset_items[start_idx:end_idx]
         
         reply = QMessageBox.question(
             self, "Chạy Batch Benchmark",
-            f"Bạn có muốn tự động chạy benchmark tất cả {len(self.dataset_items)} câu trong dataset qua 3 chế độ không?\n\n"
+            f"Bạn có muốn tự động chạy benchmark {len(subset_items)} câu (từ {start_idx+1} đến {end_idx}) qua 3 chế độ không?\n\n"
             "Quá trình chạy sẽ tự động cập nhật kết quả và xuất báo cáo sau khi xong.",
             QMessageBox.Yes | QMessageBox.No
         )
@@ -802,7 +878,7 @@ class WhisperPromptDashboard(QMainWindow):
         self.batch_ds_btn.setText("⏳ Đang chạy...")
 
         self.batch_worker = BatchBenchmarkWorker(
-            self.cache, self.dataset_items, self.model_combo.currentText(), self.config, self)
+            self.cache, subset_items, self.model_combo.currentText(), self.config, self)
         self.batch_worker.progress.connect(self._on_batch_progress)
         self.batch_worker.finished.connect(self._on_batch_finished)
         self.batch_worker.failed.connect(self._on_batch_failed)
@@ -814,7 +890,7 @@ class WhisperPromptDashboard(QMainWindow):
     def _on_batch_finished(self, total: int) -> None:
         self._set_busy(False)
         self.batch_ds_btn.setEnabled(True)
-        self.batch_ds_btn.setText("⚡ Chạy toàn bộ Dataset")
+        self.batch_ds_btn.setText("⚡ Chạy Benchmark")
         self.statusBar().showMessage(f"✅ Đã hoàn thành benchmark {total} câu!", 8000)
         self.batch_worker = None
         self._export_report()
@@ -822,7 +898,7 @@ class WhisperPromptDashboard(QMainWindow):
     def _on_batch_failed(self, err: str) -> None:
         self._set_busy(False)
         self.batch_ds_btn.setEnabled(True)
-        self.batch_ds_btn.setText("⚡ Chạy toàn bộ Dataset")
+        self.batch_ds_btn.setText("⚡ Chạy Benchmark")
         QMessageBox.critical(self, "Lỗi Batch Benchmark", err)
         self.statusBar().showMessage(f"Lỗi: {err}")
         self.batch_worker = None
@@ -1041,13 +1117,15 @@ class WhisperPromptDashboard(QMainWindow):
             self.dataset_combo.addItem(label, idx)
         self.dataset_combo.blockSignals(False)
 
+        self._update_batch_ranges()
+
         # Chon ngay file dau tien
         self._set_wav(paths[0])
         if selected_items[0]["ground_truth"]:
             self.reference_edit.setText(selected_items[0]["ground_truth"])
 
         self.statusBar().showMessage(
-            f"✅ Đã nạp {len(paths)} file WAV vào danh sách. Bấm 'Tiếp ▶' để duyệt hoặc '⚡ Chạy toàn bộ Dataset' để benchmark.", 8000)
+            f"✅ Đã nạp {len(paths)} file WAV vào danh sách. Bấm 'Tiếp ▶' để duyệt hoặc '⚡ Chạy Benchmark' để benchmark.", 8000)
 
         # Hoi nguoi dung co muon chay tu dong luon khong
         reply = QMessageBox.question(
@@ -1494,11 +1572,14 @@ class WhisperPromptDashboard(QMainWindow):
             "Reference": self.reference_edit.text().strip(),
             "Baseline_Text": results["none"]["text"],
             "Baseline_WER": f"{results['none']['wer']*100:.1f}%" if results['none']['wer'] is not None else "0.0%",
+            "Baseline_Time_s": f"{results['none']['seconds']:.2f}",
             "Global_Text": results["global"]["text"],
             "Global_WER": f"{results['global']['wer']*100:.1f}%" if results['global']['wer'] is not None else "0.0%",
+            "Global_Time_s": f"{results['global']['seconds']:.2f}",
             "Global_RAM_MB": "0.0",
             "GlobalBias_Text": results["global_bias"]["text"],
             "GlobalBias_WER": f"{results['global_bias']['wer']*100:.1f}%" if results['global_bias']['wer'] is not None else "0.0%",
+            "GlobalBias_Time_s": f"{results['global_bias']['seconds']:.2f}",
             "GlobalBias_RAM_MB": f"{ram_cost:+.1f}",
             "Scenario_Text": results["global_bias"]["text"],
             "Scenario_WER": f"{results['global_bias']['wer']*100:.1f}%" if results['global_bias']['wer'] is not None else "0.0%",
